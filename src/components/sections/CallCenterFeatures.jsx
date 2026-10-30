@@ -48,7 +48,7 @@ function FeatureCard({ card, mediaHeight, className = "" }) {
     setActive(true);
     const v = videoRef.current;
     if (!v) return;
-    v.play().catch(() => {}); // ignore autoplay-policy errors
+    v.play().catch(() => {}); 
   };
 
   const stop = () => {
@@ -56,7 +56,7 @@ function FeatureCard({ card, mediaHeight, className = "" }) {
     const v = videoRef.current;
     if (!v) return;
     v.pause();
-    v.currentTime = 0; // back to first frame (shows the poster again)
+    v.currentTime = 0; 
   };
 
   return (
@@ -87,7 +87,7 @@ function FeatureCard({ card, mediaHeight, className = "" }) {
         />
       </div>
 
-      {/* ---------- text ---------- */}
+      
       <div className="px-6 pb-8 pt-6 lg:px-8">
         <h3 className="text-[20px] font-normal leading-7 tracking-[-0.03em] text-[#0e1535] lg:text-[22px]">
           {card.title}
@@ -100,9 +100,6 @@ function FeatureCard({ card, mediaHeight, className = "" }) {
   );
 }
 
-/* ------------------------------------------------------------------ */
-/*  3. SECTION                                                          */
-/* ------------------------------------------------------------------ */
 export default function CallCenterFeatures() {
   return (
     <section className="w-full bg-white py-16 font-sans antialiased lg:py-24">

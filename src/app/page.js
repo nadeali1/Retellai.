@@ -34,7 +34,7 @@ export default function Home() {
       <DeveloperFriendly />
       <FaqAccordion />
       <CtaBanner />
-      {/* <Footer /> */}
+      <Footer />
 
     </main>
   );

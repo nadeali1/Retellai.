@@ -70,7 +70,7 @@ const NAV = [
   {
     label: "Developers",
     menu: {
-       columns: [
+      columns: [
         {
           title: "Resources",
           links: [
@@ -90,7 +90,6 @@ const NAV = [
             { label: "Go High Level", href: "#" },
             { label: "n8n", href: "#" },
             { label: "Hubspot", href: "#" },
-
           ],
         },
       ],
@@ -99,7 +98,7 @@ const NAV = [
   {
     label: "Resources",
     menu: {
-       columns: [
+      columns: [
         {
           title: "Build",
           links: [
@@ -145,12 +144,7 @@ const Logo = () => (
 );
 
 const HeadsetIcon = () => (
-  <img
-    src="/images/headset.svg"
-    alt="headset"
-    width={20.5}
-    height={20.5}
-  />
+  <img src="/images/headset.svg" alt="headset" width={20.5} height={20.5} />
 );
 
 const DotsArrowIcon = () => (
@@ -186,37 +180,24 @@ function MegaPanel({ menu }) {
               {col.title}
             </p>
             <ul className="space-y-[1.25rem]">
-              {/* {col.links.map((l) => (
+              {col.links.map((l) => (
                 <li key={l.label}>
                   <a
                     href={l.href}
-                    className="text-[17px] font-semibold text-[#151a4a] transition-colors hover:text-[#ffffff]"
-                  >
+                    className="inline-flex items-center gap-1.5 text-[17px] font-semibold text-[#151a4a] hover:text-[#5f69c2]" >
                     {l.label}
+                    {(l.label === "Documentation" || l.label === "Status") && (
+                      <ExternalArrowIcon />
+                    )}
                   </a>
                 </li>
-              ))} */}
-              {col.links.map((l) => (
-  <li key={l.label}>
-    <a
-      href={l.href}
-      className="inline-flex items-center gap-1.5 text-[17px] font-semibold text-[#151a4a] hover:text-[#5f69c2]"
-    >
-      {l.label}
-
-      {(l.label === "Documentation" || l.label === "Status") && (
-        <ExternalArrowIcon />
-      )}
-    </a>
-  </li>
-))}
+              ))}
             </ul>
           </div>
         ))}
 
         {menu.featured && (
           <div>
-            {/* Partner card */}
             <a
               href="#"
               className="flex h-[60px] items-stretch overflow-hidden rounded-lg bg-[#f7f7fb] shadow-[0_1px_2px_rgba(0,0,0,0.06)]"
@@ -232,7 +213,6 @@ function MegaPanel({ menu }) {
               </span>
             </a>
 
-            {/* Customer stories collage */}
             <div className="relative mt-10 h-[264px] w-[317.64px]">
               <img
                 src="/images/navbarpic2.avif"
@@ -264,13 +244,12 @@ function MegaPanel({ menu }) {
 }
 
 export default function Navbar() {
-  const [open, setOpen] = useState(null); // desktop: label of open dropdown
+  const [open, setOpen] = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [expanded, setExpanded] = useState(null); // mobile accordion
+  const [expanded, setExpanded] = useState(null);
 
   const activeMenu = NAV.find((n) => n.label === open)?.menu;
 
-  // Esc closes everything
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === "Escape") {
@@ -282,7 +261,6 @@ export default function Navbar() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  // Lock scroll while mobile menu is open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => (document.body.style.overflow = "");
@@ -293,13 +271,11 @@ export default function Navbar() {
       className="fixed inset-x-0 top-0 z-50 h-[92.25px] py-[15px] px-[13px] "
       onMouseLeave={() => setOpen(null)}
     >
-      {/* ---------------- Top bar ---------------- */}
       <div className=" ">
         <nav className="mx-auto flex sm:min-h-[61.5px] max-w-[1280px] items-center justify-between p-[6px] lg:p-[10px] max-lg:h-[61.5px] bg-white/80 rounded-2xl lg:max-w-[1160px]">
           <div className="flex items-center gap-8">
             <Logo />
 
-            {/* Desktop links */}
             <ul className="hidden items-center gap-1 lg:flex">
               {NAV.map((item) =>
                 item.menu ? (
@@ -317,8 +293,6 @@ export default function Navbar() {
                           : "text-[#151a4a] hover:text-[#8e90a6]"
                       }`}
                     >
-{/* 151a4a */}
-                    
                       {item.label}
                       {open === item.label ? (
                         <ChevronUp className="size-3.5" />
@@ -342,7 +316,6 @@ export default function Navbar() {
             </ul>
           </div>
 
-          {/* Desktop actions */}
           <div className="hidden items-center gap-3 lg:flex">
             <a href="#" className="px-4 text-[14px] font-medium text-[#0d1233]">
               Login
@@ -361,7 +334,6 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Mobile actions */}
           <div className="flex items-center gap-1 lg:hidden">
             <a
               href="#"
@@ -391,7 +363,6 @@ export default function Navbar() {
         </nav>
       </div>
 
-      {/* ---------------- Desktop dropdown ---------------- */}
       {activeMenu && (
         <div className="absolute inset-0 top-full hidden lg:block">
           {/* pt-2 keeps hover alive while moving from bar to panel */}
@@ -403,7 +374,6 @@ export default function Navbar() {
         </div>
       )}
 
-      {/* ---------------- Mobile menu ---------------- */}
       {mobileOpen && (
         <div className="fixed inset-x-0 bottom-0 top-[80px] px-[10px] pb-[10px] lg:hidden">
           <div className="h-full rounded-4xl bg-gradient-to-r from-pink-400 via-purple-700 to-blue-900 px-0.05 pb-0.5">

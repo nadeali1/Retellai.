@@ -21,7 +21,6 @@ const CARDS = [
   },
 ];
 
-/* 2. SECTION */
 export default function DeveloperFriendly() {
   return (
     <section className="w-full bg-white py-16 font-sans antialiased md:py-24 lg:py-32">

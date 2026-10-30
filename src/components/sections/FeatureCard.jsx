@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 
 const features = [
   {
@@ -41,76 +40,13 @@ const features = [
   },
 ];
 
-// export default function FeatureCard() {
-//   const [active, setActive] = useState(0);
-//   const feature = features[active];
-
-//   return (
-//     <>
-      
-// <div className="xl:mx-auto 2xl:mx-auto">
-
-//   {/* Video */}
-//   {/* <div className="relative aspect-[16/7] w-[] overflow-hidden rounded-[12px]"> */}
-//   <div className="relative aspect-[16/8] w-full overflow-hidden rounded-[24px]">
-//   <video
-//     key={feature.video}
-//     src={feature.video}
-//     autoPlay
-//     muted
-//     loop
-//     playsInline
-//     className="absolute inset-0 h-full w-full object-cover"
-//   />
-// </div>
-
-//   {/* Content aligned to video */}
-//   <div className="mt-[28px] grid w-full grid-cols-1 gap-y-[20px] md:grid-cols-[1fr_1fr] md:gap-x-[24px]">
-
-//     <h2 className="m-0 w-full max-w-[330px] text-[28px] leading-[1.15] tracking-[-0.03em] text-white">
-//       {feature.title}
-//     </h2>
-
-//     <p className="m-0 w-full max-w-[400px] text-[18px] leading-[1.2] text-white/85 md:ml-auto">
-//       {feature.description}
-//     </p>
-
-//     <div className="col-span-1 flex w-full flex-wrap items-center justify-start gap-[8px] md:col-span-2">
-//       {features.map((item, index) => (
-//         <button
-//           key={item.name}
-//           type="button"
-//           onClick={() => setActive(index)}
-//           className={`w-fit shrink-0 rounded-full border px-[16px] py-[12px] text-[12px] font-semibold ${
-//             active === index
-//               ? "border-white bg-white text-[#00122e]"
-//               : "border-white/40 bg-white/10 text-white"
-//           }`}
-//         >
-//           {item.name}
-//         </button>
-//       ))}
-//     </div>
-
-//   </div>
-// </div>
-
-
-
-//     </>
-//   );
-// }
-
-// mt-8 grid grid-cols-2 gap-2  md:grid-cols-5
-
-
 export default function FeatureCard() {
   const [active, setActive] = useState(0);
   const feature = features[active];
 
   return (
     <div className="lg:w-[80%] xl:w-[61%] lg:mx-auto">
-      {/* Video */}
+      
       <div className="relative aspect-[16/8] w-full overflow-hidden rounded-[24px] lg:aspect-[16/9] lg:rounded-[12px]">
         <video
           key={feature.video}
@@ -123,7 +59,6 @@ export default function FeatureCard() {
         />
       </div>
 
-      {/* Title + description + tabs, aligned to the video edges */}
       <div className="mt-[28px] grid w-full grid-cols-1 gap-y-[20px] md:grid-cols-[1fr_1fr] md:gap-x-[24px] lg:mt-[32px] lg:grid-cols-[minmax(0,69.5fr)_minmax(0,30.5fr)] lg:gap-x-0 lg:gap-y-[40px]">
         <h2 className="m-0 w-full max-w-[330px] text-[28px] leading-[1.15] tracking-[-0.03em] text-white lg:max-w-[11em] lg:text-[clamp(20px,1.4vw,32px)]">
           {feature.title}

@@ -3,7 +3,7 @@ import Button from "../ui/Button";
 export default function HomeVid() {
   return (
     <>
-      {/* <section className="p-[8px] xl:mx-[100px]"> */}
+    
       <section
         className="
           pt-[60px] px-[8px] flex flex-col gap-[60px]

@@ -31,35 +31,37 @@ export default function Highlights() {
   const [active, setActive] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
 
-useEffect(() => {
-  const handleScroll = () => {
-    const scrollableHeight =
-      document.documentElement.scrollHeight - window.innerHeight;
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollableHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
 
-    const progress =
-      scrollableHeight > 0
-        ? Math.min(100, Math.max(0, (window.scrollY / scrollableHeight) * 100))
-        : 0;
+      const progress =
+        scrollableHeight > 0
+          ? Math.min(
+              100,
+              Math.max(0, (window.scrollY / scrollableHeight) * 100),
+            )
+          : 0;
 
-    setScrollProgress(progress);
-  };
+      setScrollProgress(progress);
+    };
 
-  window.addEventListener("scroll", handleScroll, { passive: true });
-  window.addEventListener("resize", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
 
-  handleScroll();
+    handleScroll();
 
-  return () => {
-    window.removeEventListener("scroll", handleScroll);
-    window.removeEventListener("resize", handleScroll);
-  };
-}, []);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
 
   return (
     <section className="px-[8px] pt-[60px] lg:mx-auto lg:w-[80%] lg:px-0 min-[1600px]:w-[60.4%]">
       <style>{`@keyframes hl-progress{from{width:100%}to{width:100%}}`}</style>
 
-      {/* Header: text left, photo right */}
       <div className="grid grid-cols-1 gap-[10px] lg:grid-cols-2 lg:gap-0">
         <div className="flex flex-col gap-[40px]">
           <span className="text-[13px] font-medium text-[#3e6aef]">
@@ -78,8 +80,8 @@ useEffect(() => {
 
         <div className="relative aspect-[1.155/1] w-full overflow-hidden rounded-[28px] lg:col-start-2 lg:row-start-1">
           <Image
-            src='/images/HighImg.webp'
-            alt='Highlight Image'
+            src="/images/HighImg.webp"
+            alt="Highlight Image"
             fill
             sizes="(min-width:1024px) 50vw, 100vw"
             className="object-cover"
@@ -87,7 +89,6 @@ useEffect(() => {
         </div>
       </div>
 
-      {/* Rows */}
       <div className="mt-[24px]">
         {rows.map((row, i) => {
           const isActive = i === active;
@@ -97,22 +98,10 @@ useEffect(() => {
               onClick={() => setActive(i)}
               className="relative cursor-pointer pb-[44px] pt-[30px] lg:pb-[3.8%] lg:pt-[2.4%]"
             >
-              {/* progress line */}
-              {/* {isActive ? (
-                <span
-                  key={`line-${active}`}
-                  onAnimationEnd={() => setActive((a) => (a + 1) % rows.length)}
-                  className="absolute left-0 top-0 h-px bg-[#e4e4ea]"
-                  style={{ animation: "hl-progress 5s linear forwards" }}
-                />
-              ) : (
-                <span className="absolute left-0 top-0 h-px w-[3.8%] bg-[#e4e4ea]" />
-              )} */}
-
               <span
-  className="absolute left-0 top-0 h-px bg-[#e4e4ea]"
-  style={{ width: `${scrollProgress}%` }}
-/>
+                className="absolute left-0 top-0 h-px bg-[#e4e4ea]"
+                style={{ width: `${scrollProgress}%` }}
+              />
 
               <div className="grid grid-cols-1 gap-[32px] lg:grid-cols-2 lg:gap-0">
                 <h3 className="text-[26px] font-light leading-[1.1] tracking-[-0.01em] text-[#2d2d2d] lg:text-[clamp(18px,1.4vw,32px)]">
@@ -124,7 +113,6 @@ useEffect(() => {
                     {row.description}
                   </p>
 
-                  {/* Orb box */}
                   <div className="flex aspect-square w-[120px] shrink-0 items-center justify-center rounded-[8px] bg-[#F5F5FA] lg:w-[20.7%]">
                     <span
                       className={`h-[22px] w-[22px] rounded-full bg-[#00122E] shadow-[0_0_0_2px_rgba(255,170,130,0.45)] transition-transform duration-75 ${

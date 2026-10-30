@@ -2,11 +2,8 @@
 
 import { useEffect, useRef } from "react";
 
+const BREAKPOINT = 1024; 
 
-
-const BREAKPOINT = 1024; // animation starts at 1024px, never below it
-
-// How far (px) each card starts below the first card
 const OFFSETS = [0, 88, 198, 308];
 
 const CARDS = [
@@ -85,7 +82,7 @@ export default function OmniChannelCards() {
       const section = sectionRef.current;
       if (!section) return;
 
-      // Below 1024px: no animation, cards sit in a normal grid
+      
       if (window.innerWidth < BREAKPOINT) {
         resetCards();
         return;
@@ -93,12 +90,12 @@ export default function OmniChannelCards() {
 
       const rect = section.getBoundingClientRect();
       const scrollable = section.offsetHeight - window.innerHeight;
-      // 0 -> section just reached the top (pinned), 1 -> cards fully aligned
+      
       const progress = clamp(-rect.top / scrollable, 0, 1);
 
       cardRefs.current.forEach((el, i) => {
         if (!el) return;
-        // card 1 stays fixed; others travel from their offset up to 0
+        
         const y = OFFSETS[i] * (1 - progress);
         el.style.transform = `translate3d(0, ${y}px, 0)`;
       });
@@ -141,7 +138,7 @@ export default function OmniChannelCards() {
                 key={card.title}
                 className="omni__card"
                 ref={(el) => (cardRefs.current[i] = el)}
-                // initial staircase position (>=1024px) before JS runs
+                
                 style={{ "--start": `${OFFSETS[i]}px` }}
               >
                 <header className="omni__cardTop">

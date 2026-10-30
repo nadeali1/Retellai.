@@ -30,7 +30,7 @@ export default function MarqueeSection() {
         ))}
       </Marquee>
 
-      {/* Second row - reverse direction */}
+      
       <Marquee reverse  className="[--duration:30s]">
         {logos.map((logo, index) => (
           <div

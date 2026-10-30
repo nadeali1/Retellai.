@@ -46,7 +46,6 @@ const cards = [
       "Deploy Retell within your own infrastructure to meet strict security and data residency requirements.",
     image: "/images/S7.svg",
   },
-  // add your remaining cards here
 ];
 
 export default function SlideCards() {
@@ -55,7 +54,6 @@ export default function SlideCards() {
   const [active, setActive] = useState(0);
   const total = cards.length;
 
-  // Work out which card is at the left edge while scrolling
   useEffect(() => {
     const el = scrollerRef.current;
     if (!el) return;
@@ -90,12 +88,10 @@ export default function SlideCards() {
     });
   };
 
-  // Shared container width: matches the other sections
   const container = "lg:mx-auto lg:w-[80%] min-[1600px]:w-[58.4%]";
 
   return (
     <section className="px-[8px] pt-[60px]">
-      {/* Header */}
       <div className={`flex flex-col gap-[40px] ${container}`}>
         <span className="text-[13px] font-medium text-[#3e6aef]">
           Compliance and Security
@@ -114,7 +110,6 @@ export default function SlideCards() {
         </div>
       </div>
 
-      {/* Carousel: bleeds off both screen edges, first card lines up with the container */}
       <div
         ref={scrollerRef}
         className="
@@ -135,7 +130,6 @@ export default function SlideCards() {
               lg:h-[clamp(240px,15.6vw,330px)] lg:w-[34vw] lg:max-w-[700px] lg:flex-row lg:p-[8px]
             "
           >
-            {/* Text */}
             <div className="flex flex-1 flex-col justify-between gap-[40px] p-[8px] lg:gap-0 lg:pr-[16px]">
               <h3 className="text-[28px] font-light leading-[1.1] tracking-[-0.01em] text-[#2d2d2d] lg:max-w-[8em] lg:text-[clamp(18px,1.4vw,32px)]">
                 {c.title}
@@ -145,36 +139,20 @@ export default function SlideCards() {
               </p>
             </div>
 
-            {/* Image */}
-            {/* <div
-              className={`relative h-[187px] w-full overflow-hidden rounded-[8px] bg-[url('/images/SC.webp')] bg-cover bg-top bg-no-repeat lg:h-full lg:w-auto lg:aspect-[256/275] lg:shrink-0`}
-            >
+            <div className="relative h-[187px] w-full overflow-hidden rounded-[8px] bg-[url('/images/SC.webp')] bg-cover bg-top bg-no-repeat lg:aspect-[256/275] lg:h-full lg:w-auto lg:shrink-0">
               <Image
                 src={c.image}
                 alt={c.title}
-                width={120}
+                width={100}
                 height={100}
                 sizes="100px"
-                className="object-cover"
+                className="absolute left-1/2 top-1/2 h-[100px] w-[100px] -translate-x-1/2 -translate-y-1/2 object-contain"
               />
-            </div> */}
-            <div
-  className="relative h-[187px] w-full overflow-hidden rounded-[8px] bg-[url('/images/SC.webp')] bg-cover bg-top bg-no-repeat lg:aspect-[256/275] lg:h-full lg:w-auto lg:shrink-0"
->
-  <Image
-    src={c.image}
-    alt={c.title}
-    width={100}
-    height={100}
-    sizes="100px"
-    className="absolute left-1/2 top-1/2 h-[100px] w-[100px] -translate-x-1/2 -translate-y-1/2 object-contain"
-  />
-</div>
+            </div>
           </article>
         ))}
       </div>
 
-      {/* Controls */}
       <div
         className={`mt-[40px] flex items-center gap-[16px] pb-[40px] ${container}`}
       >
@@ -203,7 +181,6 @@ export default function SlideCards() {
           {active + 1} <span>—</span> {total}
         </span>
 
-        {/* Progress line */}
         <div className="relative ml-[8px] h-px flex-1 bg-[#e4e4ea]">
           <span
             className="absolute left-0 top-0 h-px bg-[#8a8d96] transition-[width] duration-300"
