@@ -114,7 +114,7 @@ export default function HomeVid() {
                     <div className="flex flex-col items-start pt-[64px] gap-[60px]">
                       <form className="flex flex-col pt-[10px] flex-1 w-[313px]">
                         <label htmlFor="" className="text-[#3e6aef] text-[13px] mb-[5px]">Use Case</label>
-                        <select name="" id="" className="mb-[16px] h-[48px] text-[20px] border-b-2">
+                        <select name="" id="" className="mb-[16px] h-[48px] text-[20px] border-b-2 cursor-pointer">
                             <option value="">Select Your Use Case</option>
                             <option value="">Receptionist</option>
                             <option value="">Appointment Setter</option>

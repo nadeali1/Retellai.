@@ -170,9 +170,9 @@ const css = `
 
 .omni__head { text-align: center; margin-bottom: 56px; }
 .omni__eyebrow { font-size: 13px; font-weight: 600; color: #3f6df2; }
-.omni__title {
+.omni__title { 
   margin: 28px 0 0;
-  font-size: 34px;
+  font-size: 50px;
   line-height: 1.15;
   font-weight: 400;
   letter-spacing: -0.02em;

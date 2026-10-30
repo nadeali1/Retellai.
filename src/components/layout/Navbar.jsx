@@ -10,26 +10,27 @@ const NAV = [
     menu: {
       columns: [
         {
-          title: "Industries",
+          title: "Build",
           links: [
-            { label: "Healthcare", href: "#" },
-            { label: "Financial Services", href: "#" },
-            { label: "Insurance", href: "#" },
-            { label: "Logistics", href: "#" },
-            { label: "Retail & Consumer Goods", href: "#" },
-            { label: "Travel & Hospitality", href: "#" },
-            { label: "Debt Collection", href: "#" },
+            { label: "Call Transfer", href: "#" },
+            { label: "Book Appointments", href: "#" },
+            { label: "knowledge Base", href: "#" },
+            { label: "Navigate IVR", href: "#" },
           ],
         },
         {
-          title: "Use cases",
+          title: "Deploy",
           links: [
-            { label: "Overview", href: "#" },
-            { label: "AI Dispatch Service", href: "#" },
-            { label: "Lead Qualification", href: "#" },
-            { label: "AI Receptionist", href: "#" },
-            { label: "AI Customer Service", href: "#" },
-            { label: "AI Answering Service", href: "#" },
+            { label: "Batch Call", href: "#" },
+            { label: "Brand Call ID", href: "#" },
+            { label: "Verified Phone Number", href: "#" },
+          ],
+        },
+        {
+          title: "Monitor",
+          links: [
+            { label: "Post Call Analysis", href: "#" },
+            { label: "AI Quality Asurance", href: "#" },
           ],
         },
       ], // shows partner card + customer stories collage
@@ -69,12 +70,27 @@ const NAV = [
   {
     label: "Developers",
     menu: {
-      columns: [
+       columns: [
         {
-          title: "Build",
+          title: "Resources",
           links: [
-            { label: "Link one", href: "#" },
-            { label: "Link two", href: "#" },
+            { label: "Documentation", href: "#" },
+            { label: "Status", href: "#" },
+            { label: "Glossary", href: "#" },
+            { label: "Learn", href: "#" },
+          ],
+        },
+        {
+          title: "Integrations",
+          links: [
+            { label: "Overview", href: "#" },
+            { label: "Make", href: "#" },
+            { label: "Twilio", href: "#" },
+            { label: "Vonage", href: "#" },
+            { label: "Go High Level", href: "#" },
+            { label: "n8n", href: "#" },
+            { label: "Hubspot", href: "#" },
+
           ],
         },
       ],
@@ -83,12 +99,34 @@ const NAV = [
   {
     label: "Resources",
     menu: {
-      columns: [
+       columns: [
         {
-          title: "Learn",
+          title: "Build",
           links: [
-            { label: "Link one", href: "#" },
-            { label: "Link two", href: "#" },
+            { label: "Blog", href: "#" },
+            { label: "Changelog", href: "#" },
+            { label: "Community", href: "#" },
+            { label: "Events", href: "#" },
+            { label: "Customers Stories", href: "#" },
+          ],
+        },
+        {
+          title: "Deploy",
+          links: [
+            { label: "About Us", href: "#" },
+            { label: "Careers", href: "#" },
+            { label: "Newsroom", href: "#" },
+            { label: "Brand Assets", href: "#" },
+            { label: "Trust Center", href: "#" },
+          ],
+        },
+        {
+          title: "Monitor",
+          links: [
+            { label: "Solution Partner Program", href: "#" },
+            { label: "Solution Partner Directory", href: "#" },
+            { label: "App Partner Directory", href: "#" },
+            { label: "Creators Partner", href: "#" },
           ],
         },
       ],
@@ -98,44 +136,80 @@ const NAV = [
 ];
 
 const Logo = () => (
-  <a href="#" className="flex items-center gap-2 text-[#151a4a]">
+  <a
+    href="#"
+    className="flex items-center gap-2 w-[46px] h-[15px] lg:w-[86.63px] lg:h-[24.06px] text-[#151a4a]"
+  >
     <Image src={"/images/logo.svg"} width={72} height={20} alt="Logo"></Image>
   </a>
 );
 
-const HeadsetIcon = () => <span className="block size-4" />;
-{
-  /* ICON SLOT */
-}
-const DotsArrowIcon = () => <span className="block size-4" />;
-{
-  /* ICON SLOT */
-}
+const HeadsetIcon = () => (
+  <img
+    src="/images/headset.svg"
+    alt="headset"
+    width={20.5}
+    height={20.5}
+  />
+);
+
+const DotsArrowIcon = () => (
+  <img
+    src="/images/navbarsecright.svg"
+    alt="Arrow"
+    width={20.5}
+    height={20.5}
+  />
+);
+
+const ExternalArrowIcon = () => (
+  <img
+    src="/images/arrowup.svg"
+    alt=""
+    width={14}
+    height={14}
+    className="size-3.5 object-contain"
+  />
+);
 
 function MegaPanel({ menu }) {
   return (
-    <div className="rounded-2xl border border-black/5 bg-white p-[33px] shadow-[0_20px_60px_-15px_rgba(0,16,41,0.35)]">
+    <div className="min-h-[460px] rounded-2xl border border-black/5 bg-white p-[41px] shadow-[0_20px_60px_-15px_rgba(0,16,41,0.35)]">
       <div
-        className={`grid gap-x-8 ${
+        className={`grid gap-[2.5rem] ${
           menu.featured ? "grid-cols-[1fr_1fr_1.05fr]" : "grid-cols-3"
         }`}
       >
         {menu.columns.map((col) => (
-          <div key={col.title}>
-            <p className="mb-7 text-[13px] font-medium text-[#9a9bb0]">
+          <div className="space-y-[2rem]" key={col.title}>
+            <p className="mb-7  text-[15px] font-medium text-[#9a9bb0]">
               {col.title}
             </p>
-            <ul className="space-y-[19px]">
-              {col.links.map((l) => (
+            <ul className="space-y-[1.25rem]">
+              {/* {col.links.map((l) => (
                 <li key={l.label}>
                   <a
                     href={l.href}
-                    className="text-[15px] font-semibold text-[#151a4a] transition-colors hover:text-[#4a5bd4]"
+                    className="text-[17px] font-semibold text-[#151a4a] transition-colors hover:text-[#ffffff]"
                   >
                     {l.label}
                   </a>
                 </li>
-              ))}
+              ))} */}
+              {col.links.map((l) => (
+  <li key={l.label}>
+    <a
+      href={l.href}
+      className="inline-flex items-center gap-1.5 text-[17px] font-semibold text-[#151a4a] hover:text-[#5f69c2]"
+    >
+      {l.label}
+
+      {(l.label === "Documentation" || l.label === "Status") && (
+        <ExternalArrowIcon />
+      )}
+    </a>
+  </li>
+))}
             </ul>
           </div>
         ))}
@@ -151,7 +225,7 @@ function MegaPanel({ menu }) {
                 <HeadsetIcon />
               </span>
               <span className="flex flex-1 items-center justify-between gap-3 px-4">
-                <span className="text-[14px] font-semibold leading-tight text-[#151a4a]">
+                <span className="text-[16px] font-semibold leading-tight text-[#151a4a]">
                   Hire a certified Retell solution partner
                 </span>
                 <DotsArrowIcon />
@@ -159,21 +233,21 @@ function MegaPanel({ menu }) {
             </a>
 
             {/* Customer stories collage */}
-            <div className="relative mt-10 h-[230px] w-full">
+            <div className="relative mt-10 h-[264px] w-[317.64px]">
               <img
-                src="/images/customer-1.jpg"
+                src="/images/navbarpic2.avif"
                 alt="img1"
-                className="absolute bottom-[38px] left-0 h-[152px] w-[123px] rounded-md bg-slate-200 object-cover"
+                className="absolute bottom-[38px] left-0 h-[178.06px] w-[144.38px] rounded-md bg-slate-200 object-cover"
               />
               <img
-                src="/images/customer-2.jpg"
-                alt="1ms 2"
-                className="absolute right-0 top-0 h-[112px] w-[140px] rounded-md bg-slate-200 object-cover"
+                src=" /images/navbarpic2.0.avif"
+                alt="img 2"
+                className="absolute right-0 top-0 h-[129.94px] w-[163.63px] rounded-md bg-slate-200 object-cover"
               />
               <img
-                src="/images/customer-3.jpg"
+                src="/images/navbarpic1.avif"
                 alt="img 3"
-                className="absolute bottom-0 right-0 h-[110px] w-[140px] rounded-md bg-slate-200 object-cover"
+                className="absolute bottom-0 right-0 h-[127.53px] w-[163.63px] rounded-md bg-slate-200 object-cover"
               />
               <a
                 href="#"
@@ -216,12 +290,12 @@ export default function Navbar() {
 
   return (
     <header
-      className="fixed inset-x-0 top-0 z-50"
+      className="fixed inset-x-0 top-0 z-50 h-[92.25px] py-[15px] px-[13px] "
       onMouseLeave={() => setOpen(null)}
     >
       {/* ---------------- Top bar ---------------- */}
-      <div className="bg-[#3d3d83]">
-        <nav className="mx-auto flex h-[53px] max-w-[1280px] items-center justify-between px-4 lg:h-[53px] lg:px-6 max-lg:h-[72px]">
+      <div className=" ">
+        <nav className="mx-auto flex sm:min-h-[61.5px] max-w-[1280px] items-center justify-between p-[6px] lg:p-[10px] max-lg:h-[61.5px] bg-white/80 rounded-2xl lg:max-w-[1160px]">
           <div className="flex items-center gap-8">
             <Logo />
 
@@ -237,12 +311,14 @@ export default function Navbar() {
                         setOpen(open === item.label ? null : item.label)
                       }
                       aria-expanded={open === item.label}
-                      className={`flex items-center gap-1.5 rounded-md px-3 py-2 text-[14px] font-medium transition-colors ${
+                      className={`flex items-center gap-1.5 ml-[.5px] rounded-md px-3 py-2 text-[14px] font-medium transition-colors ${
                         open === item.label
                           ? "text-[#151a4a]"
-                          : "text-[#8e90a6] hover:text-[#151a4a]"
+                          : "text-[#151a4a] hover:text-[#8e90a6]"
                       }`}
                     >
+{/* 151a4a */}
+                    
                       {item.label}
                       {open === item.label ? (
                         <ChevronUp className="size-3.5" />
@@ -286,16 +362,16 @@ export default function Navbar() {
           </div>
 
           {/* Mobile actions */}
-          <div className="flex items-center gap-3 lg:hidden">
+          <div className="flex items-center gap-1 lg:hidden">
             <a
               href="#"
-              className="rounded-lg bg-[#f1f1f7] px-4 py-2.5 text-[13px] font-semibold text-[#0d1233]"
+              className="rounded-lg bg-[#f1f1f7] px-4 py-2 text-[13px] font-semibold text-[#0d1233]"
             >
               Contact Sales
             </a>
             <a
               href="#"
-              className="rounded-lg bg-[#001029] px-4 py-2.5 text-[13px] font-semibold text-white"
+              className="rounded-lg bg-[#001029] px-4 py-2 text-[13px] font-semibold text-white hover"
             >
               Try For Free
             </a>
@@ -317,10 +393,10 @@ export default function Navbar() {
 
       {/* ---------------- Desktop dropdown ---------------- */}
       {activeMenu && (
-        <div className="absolute inset-x-0 top-full hidden lg:block">
+        <div className="absolute inset-0 top-full hidden lg:block">
           {/* pt-2 keeps hover alive while moving from bar to panel */}
-          <div className="mx-auto flex max-w-[1280px] justify-end px-6 pt-2">
-            <div className="w-full max-w-[957px]">
+          <div className="mx-auto flex max-w-[1280px] justify-end px-7 ">
+            <div className="w-full max-w-[1100px] pb-[40px]">
               <MegaPanel menu={activeMenu} />
             </div>
           </div>
@@ -329,9 +405,9 @@ export default function Navbar() {
 
       {/* ---------------- Mobile menu ---------------- */}
       {mobileOpen && (
-        <div className="fixed inset-x-0 bottom-0 top-[72px] px-0 pb-0 lg:hidden">
-          <div className="h-full rounded-b-3xl bg-gradient-to-r from-pink-400 via-purple-700 to-blue-900 p-px pb-0.5">
-            <div className="h-full overflow-y-auto rounded-b-[23px] bg-white px-7 pt-6">
+        <div className="fixed inset-x-0 bottom-0 top-[80px] px-[10px] pb-[10px] lg:hidden">
+          <div className="h-full rounded-4xl bg-gradient-to-r from-pink-400 via-purple-700 to-blue-900 px-0.05 pb-0.5">
+            <div className="h-full overflow-y-auto rounded-[23px] bg-white px-[20px] pt-6">
               <ul>
                 {NAV.map((item) =>
                   item.menu ? (
@@ -355,10 +431,10 @@ export default function Navbar() {
                       </button>
 
                       {expanded === item.label && (
-                        <div className="pb-4 pl-1">
+                        <div className="pb-4 pl-5">
                           {item.menu.columns.map((col) => (
                             <div key={col.title} className="mb-4">
-                              <p className="mb-2 text-[13px] font-medium text-[#9a9bb0]">
+                              <p className="my-[20px] text-[16px] font-medium text-[#9a9bb0]">
                                 {col.title}
                               </p>
                               <ul className="space-y-3">
@@ -395,7 +471,7 @@ export default function Navbar() {
                   <a
                     href="#"
                     onClick={() => setMobileOpen(false)}
-                    className="block py-[17px] text-[16px] font-semibold text-[#151a4a]"
+                    className="block py-[17px] text-[16px] font-semibold text-[#151a4a] hover:bg-[#3724a3]"
                   >
                     Login
                   </a>

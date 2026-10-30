@@ -13,7 +13,7 @@ export default function MarqueeSection() {
   return (
     <div className="flex w-full flex-col gap-[52px] overflow-hidden pt-[30px] pb-[12px]">
       {/* First row */}
-      <Marquee pauseOnHover className="[--duration:25s]">
+      <Marquee  className="[--duration:30s]">
         {logos.map((logo, index) => (
           <div
             key={`first-${index}`}
@@ -31,7 +31,7 @@ export default function MarqueeSection() {
       </Marquee>
 
       {/* Second row - reverse direction */}
-      <Marquee reverse pauseOnHover className="[--duration:25s]">
+      <Marquee reverse  className="[--duration:30s]">
         {logos.map((logo, index) => (
           <div
             key={`second-${index}`}

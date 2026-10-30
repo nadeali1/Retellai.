@@ -22,6 +22,7 @@ body {
   margin: 0;
   font-size: 14px;
   font-family: "Untitled Sans", Georgia, sans-serif;
+  font-weight: 300;
   line-height: 20px;
   min-height: 100%;
 }

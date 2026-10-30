@@ -1,6 +1,6 @@
+import './globals.css'
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
-import './globals.css'
 import MarqueeSection from '@/components/sections/Marquee';
 import HomeVid from '@/components/sections/HomeVid';
 import Testimonial from "@/components/sections/Testimonial";
@@ -12,11 +12,14 @@ import BuiltToScale from "@/components/sections/BuiltToScale";
 import FaqAccordion from "@/components/sections/FaqAccordion";
 import CtaBanner from "@/components/sections/CtaBanner";
 import TalksLikePeopleScroll from "@/components/sections/TalksLikePeopleScroll";
+import CallCenterFeatures from "@/components/sections/CallCenterFeatures";
+import DeveloperFriendly from "@/components/sections/DeveloperFriendly";
+import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
-      {/* <Navbar /> */}
+      <Navbar />
       <Hero />
       <MarqueeSection />
       <BuiltToScale />
@@ -25,10 +28,13 @@ export default function Home() {
       <ProductDemo />
       <TalksLikePeopleScroll />
       <Highlight />
+      <CallCenterFeatures />
       <OmniChannelCards />
       <SlideCards />
+      <DeveloperFriendly />
       <FaqAccordion />
       <CtaBanner />
+      {/* <Footer /> */}
 
     </main>
   );

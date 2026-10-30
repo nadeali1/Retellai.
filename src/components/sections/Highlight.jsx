@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 
+import { useEffect } from "react";
+
 const rows = [
   {
     title: "Lowest Latency",
@@ -27,10 +29,35 @@ const rows = [
 
 export default function Highlights() {
   const [active, setActive] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+useEffect(() => {
+  const handleScroll = () => {
+    const scrollableHeight =
+      document.documentElement.scrollHeight - window.innerHeight;
+
+    const progress =
+      scrollableHeight > 0
+        ? Math.min(100, Math.max(0, (window.scrollY / scrollableHeight) * 100))
+        : 0;
+
+    setScrollProgress(progress);
+  };
+
+  window.addEventListener("scroll", handleScroll, { passive: true });
+  window.addEventListener("resize", handleScroll);
+
+  handleScroll();
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+    window.removeEventListener("resize", handleScroll);
+  };
+}, []);
 
   return (
     <section className="px-[8px] pt-[60px] lg:mx-auto lg:w-[80%] lg:px-0 min-[1600px]:w-[60.4%]">
-      <style>{`@keyframes hl-progress{from{width:0}to{width:100%}}`}</style>
+      <style>{`@keyframes hl-progress{from{width:100%}to{width:100%}}`}</style>
 
       {/* Header: text left, photo right */}
       <div className="grid grid-cols-1 gap-[10px] lg:grid-cols-2 lg:gap-0">
@@ -71,7 +98,7 @@ export default function Highlights() {
               className="relative cursor-pointer pb-[44px] pt-[30px] lg:pb-[3.8%] lg:pt-[2.4%]"
             >
               {/* progress line */}
-              {isActive ? (
+              {/* {isActive ? (
                 <span
                   key={`line-${active}`}
                   onAnimationEnd={() => setActive((a) => (a + 1) % rows.length)}
@@ -80,7 +107,12 @@ export default function Highlights() {
                 />
               ) : (
                 <span className="absolute left-0 top-0 h-px w-[3.8%] bg-[#e4e4ea]" />
-              )}
+              )} */}
+
+              <span
+  className="absolute left-0 top-0 h-px bg-[#e4e4ea]"
+  style={{ width: `${scrollProgress}%` }}
+/>
 
               <div className="grid grid-cols-1 gap-[32px] lg:grid-cols-2 lg:gap-0">
                 <h3 className="text-[26px] font-light leading-[1.1] tracking-[-0.01em] text-[#2d2d2d] lg:text-[clamp(18px,1.4vw,32px)]">
