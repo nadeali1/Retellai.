@@ -33,7 +33,7 @@ const NAV = [
             { label: "AI Quality Asurance", href: "#" },
           ],
         },
-      ], // shows partner card + customer stories collage
+      ],
     },
   },
   {
@@ -64,7 +64,7 @@ const NAV = [
           ],
         },
       ],
-      featured: true, // shows partner card + customer stories collage
+      featured: true, 
     },
   },
   {
@@ -137,7 +137,7 @@ const NAV = [
 const Logo = () => (
   <a
     href="#"
-    className="flex items-center gap-2 w-[46px] h-[15px] lg:w-[86.63px] lg:h-[24.06px] text-[#151a4a]"
+    className="flex items-center gap-2 w-[var(--logo-width)] h-[var(--logo-height)] lg:w-[var(--logo-width-lg)] lg:h-[var(--logo-height-lg)] text-[var(--color-navy)]"
   >
     <Image src={"/images/logo.svg"} width={72} height={20} alt="Logo"></Image>
   </a>
@@ -168,7 +168,7 @@ const ExternalArrowIcon = () => (
 
 function MegaPanel({ menu }) {
   return (
-    <div className="min-h-[460px] rounded-2xl border border-black/5 bg-white p-[41px] shadow-[0_20px_60px_-15px_rgba(0,16,41,0.35)]">
+    <div className="min-h-[var(--mega-min-height)] rounded-2xl border border-black/5 bg-white p-[var(--mega-padding)] shadow-[var(--shadow-mega-menu)]">
       <div
         className={`grid gap-[2.5rem] ${
           menu.featured ? "grid-cols-[1fr_1fr_1.05fr]" : "grid-cols-3"
@@ -176,7 +176,7 @@ function MegaPanel({ menu }) {
       >
         {menu.columns.map((col) => (
           <div className="space-y-[2rem]" key={col.title}>
-            <p className="mb-7  text-[15px] font-medium text-[#9a9bb0]">
+            <p className="mb-7 text-[length:var(--font-15)] font-medium 	text-[var(--color-muted)]">
               {col.title}
             </p>
             <ul className="space-y-[1.25rem]">
@@ -184,7 +184,7 @@ function MegaPanel({ menu }) {
                 <li key={l.label}>
                   <a
                     href={l.href}
-                    className="inline-flex items-center gap-1.5 text-[17px] font-semibold text-[#151a4a] hover:text-[#5f69c2]" >
+                    className="inline-flex items-center gap-1.5 text-[length:var(--text-xl)] font-semibold text-[var(--color-navy)] hover:text-[var(--color-purple-hover)]" >
                     {l.label}
                     {(l.label === "Documentation" || l.label === "Status") && (
                       <ExternalArrowIcon />
@@ -200,38 +200,38 @@ function MegaPanel({ menu }) {
           <div>
             <a
               href="#"
-              className="flex h-[60px] items-stretch overflow-hidden rounded-lg bg-[#f7f7fb] shadow-[0_1px_2px_rgba(0,0,0,0.06)]"
+              className="flex h-[var(--mega-card-height)] items-stretch overflow-hidden rounded-lg bg-[var(--color-card)] shadow-[var(--shadow-small)]"
             >
-              <span className="flex w-[60px] shrink-0 items-center justify-center bg-[#f1f1f7]">
+              <span className="flex w-[var(--mega-card-width)] shrink-0 items-center justify-center bg-[#f1f1f7]">
                 <HeadsetIcon />
               </span>
               <span className="flex flex-1 items-center justify-between gap-3 px-4">
-                <span className="text-[16px] font-semibold leading-tight text-[#151a4a]">
+                <span className="text-[length:var(--font-16)] font-semibold leading-tight text-[var(--color-navy)]">
                   Hire a certified Retell solution partner
                 </span>
                 <DotsArrowIcon />
               </span>
             </a>
 
-            <div className="relative mt-10 h-[264px] w-[317.64px]">
+            <div className="relative mt-10 h-[var(--mega-image-container-height)] w-[var(--mega-image-container-width)]">
               <img
                 src="/images/navbarpic2.avif"
                 alt="img1"
-                className="absolute bottom-[38px] left-0 h-[178.06px] w-[144.38px] rounded-md bg-slate-200 object-cover"
+                className="absolute bottom-[var(--mega-image-bottom)] left-0 h-[var(--mega-image-one-height)] w-[var(--mega-image-one-width)] rounded-md bg-[var(--color-slate)] object-cover"
               />
               <img
                 src=" /images/navbarpic2.0.avif"
                 alt="img 2"
-                className="absolute right-0 top-0 h-[129.94px] w-[163.63px] rounded-md bg-slate-200 object-cover"
+                className="absolute right-0 top-0 h-[var(--mega-image-two-height)] w-[var(--mega-image-two-width)] rounded-md bg-[var(--color-slate)] object-cover"
               />
               <img
                 src="/images/navbarpic1.avif"
                 alt="img 3"
-                className="absolute bottom-0 right-0 h-[127.53px] w-[163.63px] rounded-md bg-slate-200 object-cover"
+                className="absolute bottom-0 right-0 h-[var(--mega-image-three-height)] w-[var(--mega-image-two-width)] rounded-md bg-[var(--color-slate)] object-cover"
               />
               <a
                 href="#"
-                className="absolute left-1/2 top-[96px] -translate-x-[45%] whitespace-nowrap rounded-md bg-white px-4 py-2 text-[13px] font-semibold text-[#151a4a] shadow-[0_4px_14px_rgba(0,0,0,0.12)]"
+                className="absolute left-1/2 top-[var(--mega-story-top)] -translate-x-[45%] whitespace-nowrap rounded-md bg-white px-4 py-2 text-[length:var(--font-13)] font-semibold text-[var(--color-navy)]shadow-[var(--shadow-card)]"
               >
                 See Customer Stories
               </a>
@@ -268,11 +268,11 @@ export default function Navbar() {
 
   return (
     <header
-      className="fixed inset-x-0 top-0 z-50 h-[92.25px] py-[15px] px-[13px] "
+      className="fixed inset-x-0 top-0 z-50 h-[var(--header-height)] py-[var(--nav-header-padding-y)] px-[var(--nav-header-padding-x)] "
       onMouseLeave={() => setOpen(null)}
     >
       <div className=" ">
-        <nav className="mx-auto flex sm:min-h-[61.5px] max-w-[1280px] items-center justify-between p-[6px] lg:p-[10px] max-lg:h-[61.5px] bg-white/80 rounded-2xl lg:max-w-[1160px]">
+        <nav className="mx-auto flex sm:min-h-[var(--navbar-height)] max-w-[var(--container-width)] items-center justify-between p-[6px] lg:p-[var(--nav-padding-lg)] max-lg:h-[61.5px] bg-[var(--color-white-transparent)] rounded-2xl lg:max-w-[var(--navbar-width)]">
           <div className="flex items-center gap-8">
             <Logo />
 
@@ -287,10 +287,10 @@ export default function Navbar() {
                         setOpen(open === item.label ? null : item.label)
                       }
                       aria-expanded={open === item.label}
-                      className={`flex items-center gap-1.5 ml-[.5px] rounded-md px-3 py-2 text-[14px] font-medium transition-colors ${
+                      className={`flex items-center gap-1.5 ml-[var(--nav-item-margin-left)] rounded-md px-3 py-2 text-[length:var(--text-base)] font-medium transition-colors ${
                         open === item.label
-                          ? "text-[#151a4a]"
-                          : "text-[#151a4a] hover:text-[#8e90a6]"
+                          ? "text-[var(--color-navy)]"
+                          : "text-[var(--color-navy)] hover:text-[var(--color-muted-hover)]"
                       }`}
                     >
                       {item.label}
@@ -306,7 +306,7 @@ export default function Navbar() {
                     <a
                       href={item.href}
                       onMouseEnter={() => setOpen(null)}
-                      className="rounded-md px-3 py-2 text-[14px] font-medium text-[#151a4a] transition-colors hover:text-[#151a4a]"
+                      className="rounded-md px-3 py-2 text-[length:var(--text-base)] font-medium text-[var(--color-navy)] transition-colors hover:text-[var(--color-navy)]"
                     >
                       {item.label}
                     </a>
@@ -317,18 +317,18 @@ export default function Navbar() {
           </div>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <a href="#" className="px-4 text-[14px] font-medium text-[#0d1233]">
+            <a href="#" className="px-4 text-[length:var(--text-base)] font-medium text-[var(--color-navy)]">
               Login
             </a>
             <a
               href="#"
-              className="rounded-lg bg-[#f1f1f7] px-4 py-2.5 text-[14px] font-medium text-[#0d1233] transition-colors hover:bg-[#e8e8f1]"
+              className="rounded-lg bg-[var(--color-light)] px-4 py-2.5 text-[length:var(--text-base)] font-medium text-[var(--color-navy)] transition-colors hover:bg-[var(--color-light-hover)]"
             >
               Contact Sales
             </a>
             <a
               href="#"
-              className="rounded-lg bg-[#001029] px-4 py-2.5 text-[14px] font-medium text-white transition-colors hover:bg-[#0a1f45]"
+              className="rounded-lg bg-[var(--color-navy)] px-4 py-2.5 text-[length:var(--text-base)] font-medium text-white transition-colors hover:bg-[var(--color-navy)]"
             >
               Try For Free
             </a>
@@ -337,13 +337,13 @@ export default function Navbar() {
           <div className="flex items-center gap-1 lg:hidden">
             <a
               href="#"
-              className="rounded-lg bg-[#f1f1f7] px-4 py-2 text-[13px] font-semibold text-[#0d1233]"
+              className="rounded-lg bg-[var(--color-light)] px-4 py-2 text-[length:var(--font-13)] font-semibold text-[var(--color-dark-navy)]"
             >
               Contact Sales
             </a>
             <a
               href="#"
-              className="rounded-lg bg-[#001029] px-4 py-2 text-[13px] font-semibold text-white hover"
+              className="rounded-lg bg-[var(--color-dark-navy)] px-4 py-2 text-[length:var(--font-13)] font-semibold text-white hover"
             >
               Try For Free
             </a>
@@ -351,7 +351,7 @@ export default function Navbar() {
               type="button"
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               onClick={() => setMobileOpen((v) => !v)}
-              className="p-1 text-[#0d1233]"
+              className="p-1 text-[var(--color-dark-navy)]"
             >
               {mobileOpen ? (
                 <X className="size-6" />
@@ -365,9 +365,8 @@ export default function Navbar() {
 
       {activeMenu && (
         <div className="absolute inset-0 top-full hidden lg:block">
-          {/* pt-2 keeps hover alive while moving from bar to panel */}
-          <div className="mx-auto flex max-w-[1280px] justify-end px-7 ">
-            <div className="w-full max-w-[1100px] pb-[40px]">
+          <div className="mx-auto flex max-w-[var(--container-width)] justify-end px-7 ">
+            <div className="w-full max-w-[var(--mega-panel-width)] pb-[40px]">
               <MegaPanel menu={activeMenu} />
             </div>
           </div>
@@ -375,9 +374,9 @@ export default function Navbar() {
       )}
 
       {mobileOpen && (
-        <div className="fixed inset-x-0 bottom-0 top-[80px] px-[10px] pb-[10px] lg:hidden">
-          <div className="h-full rounded-4xl bg-gradient-to-r from-pink-400 via-purple-700 to-blue-900 px-0.05 pb-0.5">
-            <div className="h-full overflow-y-auto rounded-[23px] bg-white px-[20px] pt-6">
+        <div className="fixed inset-x-0 bottom-0 top-[var(--mobile-menu-top)] px-[var(--mobile-menu-padding)] pb-[var(--mobile-menu-padding)] lg:hidden">
+          <div className="h-full rounded-4xl bg-[image:var(--background-image-primary)] px-0.05 pb-0.5">
+            <div className="h-full overflow-y-auto rounded-[var(--mobile-menu-radius)] bg-white px-[var(--mobile-menu-inner-padding)] pt-6">
               <ul>
                 {NAV.map((item) =>
                   item.menu ? (
@@ -390,7 +389,7 @@ export default function Navbar() {
                           )
                         }
                         aria-expanded={expanded === item.label}
-                        className="flex w-full items-center justify-between py-[17px] text-[16px] font-semibold text-[#151a4a]"
+                        className="flex w-full items-center justify-between py-[17px] text-[length:var(--font-16)] font-semibold text-[var(--color-navy)]"
                       >
                         {item.label}
                         <ChevronRight
@@ -404,7 +403,7 @@ export default function Navbar() {
                         <div className="pb-4 pl-5">
                           {item.menu.columns.map((col) => (
                             <div key={col.title} className="mb-4">
-                              <p className="my-[20px] text-[16px] font-medium text-[#9a9bb0]">
+                              <p className="my-[var(--mobile-menu-title-margin)] text-[length:var(--font-16)] font-medium	text-[var(--color-muted)]">
                                 {col.title}
                               </p>
                               <ul className="space-y-3">
@@ -413,7 +412,7 @@ export default function Navbar() {
                                     <a
                                       href={l.href}
                                       onClick={() => setMobileOpen(false)}
-                                      className="text-[15px] font-medium text-[#151a4a]"
+                                      className="text-[length:var(--font-15)] font-medium text-[var(--color-navy)]"
                                     >
                                       {l.label}
                                     </a>
@@ -430,7 +429,7 @@ export default function Navbar() {
                       <a
                         href={item.href}
                         onClick={() => setMobileOpen(false)}
-                        className="block py-[17px] text-[16px] font-semibold text-[#151a4a]"
+                        className="block py-[17px] text-[length:var(--font-16)] font-semibold text-[var(--color-navy)]"
                       >
                         {item.label}
                       </a>
@@ -441,7 +440,7 @@ export default function Navbar() {
                   <a
                     href="#"
                     onClick={() => setMobileOpen(false)}
-                    className="block py-[17px] text-[16px] font-semibold text-[#151a4a] hover:bg-[#3724a3]"
+                    className="block py-[17px] text-[length:var(--font-16)] font-semibold text-[var(--color-navy)] hover:bg-[#3724a3]"
                   >
                     Login
                   </a>

@@ -59,12 +59,11 @@ export default function CtaBanner() {
   }, []);
 
   return (
-    <section className="w-full bg-white p-2 md:p-3">
+    <section className="w-full bg-[var(--cta-section-bg)] p-2 md:p-3">
       <div
         ref={bannerRef}
-        className="relative mx-auto flex min-h-[480px] w-full items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-stone-700 to-stone-900 md:h-[680px]"
-      >
-        
+       className="relative mx-auto flex min-h-[var(--cta-banner-min-height)] w-full items-center justify-center overflow-hidden rounded-[var(--cta-banner-radius)] bg-[image:var(--cta-banner-gradient)] md:h-[var(--cta-banner-height-md)]"
+        >
         {MOBILE_SRC && (
           <picture>
             <source media="(min-width: 1024px)" srcSet={DESKTOP_SRC} />
@@ -80,16 +79,16 @@ export default function CtaBanner() {
         
         <div
           ref={cardRef}
-          className="relative z-10 w-[calc(100%-48px)] max-w-[430px] will-change-transform"
+          className="relative z-10 w-[var(--cta-card-width)] max-w-[var(--cta-card-max-width)] will-change-transform"
         >
-          <div className="flex flex-col rounded-md bg-[#f4f4f8] p-3 shadow-sm md:min-h-[393px] md:justify-between">
+          <div className="flex flex-col rounded-[var(--cta-card-radius)] bg-[var(--cta-card-bg)] p-[var(--cta-card-padding)] shadow-sm md:min-h-[var(--cta-card-min-height-md)] md:justify-between">
         
             <div className="md:flex md:items-start md:justify-between md:gap-4">
-              <h2 className="max-w-[200px] text-[22px] font-normal leading-[1.15] tracking-tight text-[#2b2b33] md:text-[24px]">
+              <h2 className="max-w-[var(--cta-heading-max-width)] text-[length:var(--cta-heading-font)] font-normal leading-[var(--cta-heading-line-height)] tracking-tight text-[var(--cta-heading-color)] md:text-[length:var(--cta-heading-font-md)]">
                 Revolutionize your call operation with Retell
               </h2>
 
-              <div className="mt-5 h-[64px] w-[64px] shrink-0 overflow-hidden rounded-xl bg-gradient-to-br from-pink-400 via-purple-500 to-blue-600 md:mt-0 md:h-[98px] md:w-[98px] md:rounded-lg">
+              <div className="mt-[var(--cta-profile-margin-top)] h-[var(--cta-profile-size)] w-[var(--cta-profile-size)] shrink-0 overflow-hidden rounded-[var(--cta-profile-radius)] bg-[image:var(--cta-profile-gradient)] md:mt-0 md:h-[var(--cta-profile-size-md)] md:w-[var(--cta-profile-size-md)] md:rounded-[var(--cta-profile-radius-md)]">
                 {PROFILE_IMAGE && (
                   <img
                     src={PROFILE_IMAGE}
@@ -101,20 +100,20 @@ export default function CtaBanner() {
             </div>
 
             <div className="mt-4 md:mt-0">
-              <p className="max-w-[200px] text-[15px] leading-snug text-[#1c1c28] md:max-w-[190px] md:text-[11px] md:leading-tight">
+              <p className="max-w-[var(--cta-description-max-width)] text-[length:var(--cta-description-font)] leading-[var(--cta-description-line-height)] text-[var(--cta-description-color)] md:max-w-[var(--cta-description-max-width-md)] md:text-[length:var(--cta-description-font-md)] md:leading-[var(--cta-description-line-height-md)]">
                 Start building smarter conversations today.
               </p>
 
-              <div className="mt-5 flex flex-col items-start gap-2 md:mt-3 md:flex-row md:gap-1">
+              <div className="mt-[var(--cta-buttons-margin-top)] flex flex-col items-start gap-2 md:mt-[var(--cta-buttons-margin-top-md)] md:flex-row md:gap-1">
                 <a
                   href="#"
-                  className="rounded-md bg-[#0b1b33] px-4 py-2.5 text-[13px] font-semibold text-white transition hover:opacity-90"
+                 className="rounded-[var(--cta-button-radius)] bg-[var(--cta-primary-button-bg)] px-4 py-2.5 text-[length:var(--cta-button-font)] font-semibold text-[var(--cta-button-text)] transition hover:opacity-90"
                 >
                   Try For Free
                 </a>
                 <a
                   href="#"
-                  className="rounded-md bg-[#3f6df2] px-4 py-2.5 text-[13px] font-semibold text-white transition hover:opacity-90"
+                 className="rounded-[var(--cta-button-radius)] bg-[var(--cta-secondary-button-bg)] px-4 py-2.5 text-[length:var(--cta-button-font)] font-semibold text-[var(--cta-button-text)] transition hover:opacity-90"
                 >
                   Contact Sales
                 </a>

@@ -6,7 +6,7 @@ import Newsletter from "../sections/Newsletter";
 const ASSETS = {
   bgDesktop: "/images/footer.webp",
   bgMobile: "/images/footer.webp",
-  trialArt: "/images/footer/start-free-trial.png",
+//   trialArt: "/images/footer/start-free-trial.png",
   aiClaude: "/images/claude.svg",
   aiChatgpt: "/images/chatgpt.svg",
   aiPerplexity: "/images/perplexcity.svg",
@@ -130,7 +130,7 @@ const LEGAL = [
 const DottedChevron = ({ open }) => (
   <svg
     viewBox="0 0 16 10"
-    className={`h-2.5 w-4 shrink-0 text-[#1a1d2e] transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+    className={`h-2.5 w-4 shrink-0 text-[var(--footer-icon-text)] transition-transform duration-300 ${open ? "rotate-180" : ""}`}
     fill="none"
     stroke="currentColor"
     strokeWidth="2"
@@ -158,7 +158,7 @@ const ExternalArrow = () => (
 const DottedArrow = () => (
   <svg
     viewBox="0 0 12 14"
-    className="h-[19px] w-5 text-[#1a1d2e]"
+    className="h-[19px] w-5 text-[var(--footer-icon-text)]"
     fill="currentColor"
     aria-hidden="true"
   >
@@ -177,7 +177,7 @@ const DottedArrow = () => (
 function LinkGroup({ title, links, gapAfterFirst }) {
   return (
     <div className="min-w-0">
-      <h4 className="mb-5 text-[13px] font-semibold leading-none text-[#3d63f0]">
+      <h4 className="mb-5 text-[length:var(--footer-font-13)] font-semibold leading-none text-[var(--footer-blue)] ">
         {title}
       </h4>
       <ul>
@@ -190,7 +190,7 @@ function LinkGroup({ title, links, gapAfterFirst }) {
             >
               <a
                 href="#"
-                className="block py-[3px] text-[14px] leading-[18px] tracking-[-0.01em] text-[#6b7285] transition-colors hover:text-[#0b1230]"
+                className="block py-[3px] text-[length:var(--footer-font-14)] leading-[18px] tracking-[-0.01em] text-[var(--footer-link)] transition-colors hover:text-[var(--footer-text)]"
               >
                 {item.label}
                 {item.external && <ExternalArrow />}
@@ -213,7 +213,7 @@ function Row({
 }) {
   return (
     <section
-      className={`border-b border-[#e3e5ee] md:grid md:grid-cols-[1fr_2fr] md:border-b-0 md:border-t md:py-8 xl:grid-cols-[1fr_3fr] ${className}`}
+      className={`border-b border-[var(--footer-border)] md:grid md:grid-cols-[1fr_2fr] md:border-b-0 md:border-t md:py-8 xl:grid-cols-[1fr_3fr] ${className}`}
     >
       <button
         type="button"
@@ -222,7 +222,7 @@ function Row({
         className="flex w-full items-center justify-between py-5 text-left md:pointer-events-none md:items-start md:py-0"
       >
         <span
-          className={`${display} text-[30px] leading-none text-[#2b2e3b] md:text-[32px]`}
+          className={`${display} text-[length:var(--footer-font-30)] leading-none text-[var(--footer-heading)] md:text-[length:var(--footer-font-32)]`}
         >
           {label}
         </span>
@@ -251,7 +251,7 @@ export default function Footer() {
   const toggle = (k) => setOpen((s) => ({ ...s, [k]: !s[k] }));
 
   return (
-    <footer className="relative isolate w-full overflow-hidden rounded-t-[28px] bg-[#050b2e] font-sans text-white md:rounded-t-[32px]">
+    <footer className="relative isolate w-full overflow-hidden rounded-t-[var(--footer-radius)] bg-[var(--footer-bg)] font-sans text-white md:rounded-t-[var(--footer-radius-md)]">
       <picture className="pointer-events-none absolute inset-0 -z-10">
         <source media="(max-width: 767px)" srcSet={ASSETS.bgMobile} />
         <img
@@ -262,12 +262,12 @@ export default function Footer() {
       </picture>
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(60%_40%_at_55%_35%,#b03a82_0%,#7a2d7d_35%,transparent_70%),linear-gradient(180deg,#1b5fb8_0%,#0b1b5c_45%,#030a2a_80%,#0a2f8a_100%)]"
+        className="pointer-events-none absolute inset-0 -z-20 bg-[image:var(--footer-gradient)]"
       />
 
-      <div className="flex flex-col gap-12 px-4 pb-7 pt-12 sm:px-4 lg:min-h-[700px] lg:justify-between lg:pt-10">
+      <div className="flex flex-col gap-12 px-4 pb-7 pt-12 sm:px-4 lg:min-h-[var(--footer-content-height)] lg:justify-between lg:pt-10">
         <h2
-          className={`${display} text-[52px] leading-[0.88] text-white sm:text-[96px] lg:text-[128px]`}
+          className={`${display} text-[length:var(--footer-font-52)] leading-[0.88] text-white sm:text-[length:var(--footer-font-96)] lg:text-[length:var(--footer-font-128)]`}
         >
           Built
           <br />
@@ -275,15 +275,15 @@ export default function Footer() {
         </h2>
 
         <div className="flex flex-col-reverse gap-16 lg:flex-row lg:items-end lg:justify-between lg:gap-10">
-          <div className="w-full xl:max-w-[1120px]">
-            <p className="mb-7 max-w-[240px] text-[14px] font-semibold leading-[20px] text-white">
+          <div className="w-full xl:max-w-[var(--footer-newsletter-width)]">
+            <p className="mb-7 max-w-[var(--footer-newsletter-text-width)] text-[length:var(--footer-font-14)] font-semibold leading-[var(--footer-newsletter-line-height)] text-white">
               Subscribe to our newsletter for our product updates.
             </p>
             <Newsletter />
           </div>
 
           <h2
-            className={`${display} self-end text-right text-[52px] leading-[0.88] text-white sm:text-[96px] lg:text-[124px]`}
+            className={`${display} self-end text-right text-[length:var(--footer-font-52)] leading-[0.88] text-white sm:text-[length:var(--footer-font-96)] lg:text-[length:var(--footer-font-124)]`}
           >
             human by
             <br />
@@ -292,24 +292,24 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mx-2 rounded-[28px] bg-white p-3 text-[#0b1230]">
+      <div className="mx-2 rounded-[28px] bg-white p-3 text-[var(--footer-text)]">
         <div className="grid grid-cols-1 gap-x-10 lg:grid-cols-[minmax(0,1fr)_376px] lg:gap-x-14">
-          <div className="mb-6 flex h-[376px] flex-col justify-between rounded-2xl bg-[#F5F5FA] p-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:mb-0 lg:min-h-0">
-            <h3 className={`${display} text-[30px] leading-none text-[#2b2e3b]`}>Start Free Trial</h3>
+          <div className="mb-6 flex h-[var(--footer-card-height)] flex-col justify-between rounded-2xl bg-[var(--footer-card-bg)] p-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:mb-0 lg:min-h-0">
+            <h3 className={`${display} text-[length:var(--footer-font-30)] leading-none text-[var(--footer-heading)]`}>Start Free Trial</h3>
 
-            <div className="my-4 flex min-h-[120px] flex-1 items-center justify-center">
+            <div className="my-4 flex min-h-[var(--footer-trial-min-height)] flex-1 items-center justify-center">
               <img src={ASSETS.trialArt} alt="" className="max-h-full max-w-full object-contain" />
             </div>
 
             <div>
-              <p className="max-w-[240px] text-[13px] font-medium leading-5 text-[#0b1230]">
+              <p className="max-w-[var(--footer-newsletter-text-width)] text-[length:var(--footer-font-13)] font-medium leading-5 text-[var(--footer-text)]">
                 See what makes Retell’s AI voice platform unique from how it works to what it can do for your team.
               </p>
               <div className="mt-6 flex flex-wrap gap-2">
-                <a href="#" className="rounded-lg bg-[#050b24] px-4 py-3 text-[13px] font-bold leading-none text-white transition-opacity hover:opacity-90">
+                <a href="#" className="rounded-lg bg-[var(--footer-dark-button-bg)] px-4 py-3 text-[length:var(--footer-font-13)] font-bold leading-none text-white transition-opacity hover:opacity-90">
                   Try For Free
                 </a>
-                <a href="#" className="rounded-lg bg-[#3f68f5] px-4 py-3 text-[13px] font-bold leading-none text-white transition-opacity hover:opacity-90">
+                <a href="#" className="rounded-lg bg-[var(--footer-button-blue)] px-4 py-3 text-[length:var(--footer-font-13)] font-bold leading-none text-white transition-opacity hover:opacity-90">
                   Contact Sales
                 </a>
               </div>
@@ -342,10 +342,10 @@ export default function Footer() {
           />
          
 
-          <section className="pt-8 md:grid md:grid-cols-[1fr_2fr] md:border-t md:border-[#e3e5ee] md:py-8 lg:col-start-1 lg:row-start-4 xl:grid-cols-[1fr_3fr]">
-            <h3 className={`${display} text-[30px] leading-none text-[#2b2e3b] md:text-[18px] lg:text-[24px]`}>Request an AI Summary</h3>
+          <section className="pt-8 md:grid md:grid-cols-[1fr_2fr] md:border-t md:border-[var(--footer-border)] md:py-8 lg:col-start-1 lg:row-start-4 xl:grid-cols-[1fr_3fr]">
+            <h3 className={`${display} text-[length:var(--footer-font-30)] leading-none text-[var(--footer-heading)] md:text-[length:var(--footer-summary-title-md)] lg:text-[length:var(--footer-summary-title-lg)]`}>Request an AI Summary</h3>
             <div className="mt-4 md:mt-1">
-              <p className="max-w-[270px] text-[14px] leading-[17px] text-[#6b7285]">
+              <p className="max-w-[var(--footer-summary-text-width)] text-[length:var(--footer-font-14)] leading-[var(--footer-summary-line-height)] text-[var(--footer-link)]">
                 Learn more about how Retell is improving customer experience at leading enterprises.
               </p>
               <div className="mt-4 flex items-center gap-4">
@@ -356,25 +356,25 @@ export default function Footer() {
             </div>
           </section> 
 
-          <div className="mt-8 grid grid-cols-2 gap-x-6 lg:col-start-2 lg:row-start-3 lg:mt-0 lg:self-start lg:border-t lg:border-[#e3e5ee] lg:pt-8">
+          <div className="mt-8 grid grid-cols-2 gap-x-6 lg:col-start-2 lg:row-start-3 lg:mt-0 lg:self-start lg:border-t lg:border-[var(--footer-border)] lg:pt-8">
             {COMPANY.map((g) => (
               <LinkGroup key={g.title} {...g} />
             ))}
           </div>
 
-          <div className="flex items-center justify-center gap-3 py-8 lg:col-start-2 lg:row-start-4 lg:justify-end lg:border-t lg:border-[#e3e5ee] lg:py-0">
+          <div className="flex items-center justify-center gap-3 py-8 lg:col-start-2 lg:row-start-4 lg:justify-end lg:border-t lg:border-[var(--footer-border)] lg:py-0">
             <img src={ASSETS.badgeSoc2} alt="AICPA SOC 2" className="h-14 w-14 object-contain" />
             <img src={ASSETS.badgeHipaa} alt="HIPAA compliant" className="h-14 w-14 object-contain" />
             <img src={ASSETS.badgeGdpr} alt="GDPR compliant" className="h-14 w-14 object-contain" />
             <img src={ASSETS.badgeIso} alt="ISO/IEC 27001:2022 certified" className="h-14 w-14 object-contain" />
           </div>
 
-           <div className="grid grid-cols-2 gap-x-6 border-t border-[#e3e5ee] pb-3 pt-8 md:grid-cols-[1fr_2fr] md:pb-4 lg:col-start-1 lg:row-start-5 xl:grid-cols-[1fr_3fr]">
-            <p className="text-[13px] font-semibold leading-5 text-[#667182]">© 2026 Retell AI</p>
-            <ul className="flex flex-col gap-1 text-[13px] font-semibold leading-[16px] text-[#667182] md:flex-row md:flex-wrap md:gap-x-5 md:gap-y-2">
+           <div className="grid grid-cols-2 gap-x-6 border-t border-[var(--footer-border)] pb-3 pt-8 md:grid-cols-[1fr_2fr] md:pb-4 lg:col-start-1 lg:row-start-5 xl:grid-cols-[1fr_3fr]">
+            <p className="text-[length:var(--footer-font-13)] font-semibold leading-5 text-[var(--footer-muted)]">© 2026 Retell AI</p>
+            <ul className="flex flex-col gap-1 text-[length:var(--footer-font-13)] font-semibold leading-[var(--footer-legal-line-height)] text-[var(--footer-muted)] md:flex-row md:flex-wrap md:gap-x-5 md:gap-y-2">
               {LEGAL.map((l) => (
                 <li key={l}>
-                  <a href="#" className="transition-colors hover:text-[#0b1230]">
+                  <a href="#" className="transition-colors hover:text-[var(--footer-text)]">
                     {l}
                   </a>
                 </li>
@@ -388,7 +388,7 @@ export default function Footer() {
         <img
           src={ASSETS.logoBig}
           alt="Retellai footer logo"
-          className="block h-[77px] lg:h-[108px]  w-auto lg:min-w-[480px] max-w-none brightness-0 invert" />
+          className="block h-[var(--footer-logo-height)] lg:h-[var(--footer-logo-height-lg)]  w-auto lg:min-w-[var(--footer-logo-min-width-lg)] max-w-none brightness-0 invert" />
       </div>
     </footer>
   );

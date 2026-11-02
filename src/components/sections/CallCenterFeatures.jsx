@@ -66,13 +66,19 @@ function FeatureCard({ card, mediaHeight, className = "" }) {
       onMouseLeave={stop}
       onFocus={start}
       onBlur={stop}
-      className={`group flex flex-col overflow-hidden rounded-[14px] border outline-none transition-colors duration-500 ease-out cursor-pointer ${active ? "border-[#dfe6f5] bg-white" : "border-transparent bg-[#f5f5fa]"} ${className}`}
+      className={`group flex flex-col overflow-hidden rounded-[var(--call-card-radius)] border outline-none transition-colors duration-500 ease-out cursor-pointer ${
+  active
+    ? "border-[var(--call-card-border-active)] bg-[var(--call-card-active-bg)]"
+    : "border-[var(--call-card-border-transparent)] bg-[var(--call-card-bg)]"
+} ${className}`}
     >
 
       <div className={`relative w-full ${mediaHeight}`}>
         <div
           aria-hidden="true"
-          className={`pointer-events-none absolute inset-0 transition-opacity duration-500 ease-out bg-[linear-gradient(180deg,#dcecfd_0%,#d9e0f8_45%,#d3d6f3_72%,#ffffff_100%)] ${active ? "opacity-100" : "opacity-0"}`}
+          className={`pointer-events-none absolute inset-0 transition-opacity duration-500 ease-out bg-[image:var(--call-card-gradient)] ${
+  active ? "opacity-100" : "opacity-0"
+}`}
         />
 
         <video
@@ -89,10 +95,10 @@ function FeatureCard({ card, mediaHeight, className = "" }) {
 
       
       <div className="px-6 pb-8 pt-6 lg:px-8">
-        <h3 className="text-[20px] font-normal leading-7 tracking-[-0.03em] text-[#0e1535] lg:text-[22px]">
+        <h3 className="text-[length:var(--call-font-20)] font-normal leading-7 tracking-[var(--call-tracking-3)] text-[var(--call-heading-color)] lg:text-[length:var(--call-font-22)]">
           {card.title}
         </h3>
-        <p className="mt-2 text-[16px] leading-[26px] tracking-[-0.02em] text-[#6b7280] lg:text-[17px]">
+        <p className="mt-2 text-[length:var(--call-font-16)] leading-[var(--call-line-26)] tracking-[var(--call-tracking-2)] text-[var(--call-description-color)] lg:text-[length:var(--call-font-17)]">
           {card.text}
         </p>
       </div>
@@ -102,20 +108,20 @@ function FeatureCard({ card, mediaHeight, className = "" }) {
 
 export default function CallCenterFeatures() {
   return (
-    <section className="w-full bg-white py-16 font-sans antialiased lg:py-24">
-      <div className="mx-auto w-full max-w-[1160px] px-4 sm:px-6 lg:px-0">
+   <section className="w-full bg-[var(--call-section-bg)] py-16 font-sans antialiased lg:py-24">
+      <div className="mx-auto w-full max-w-[var(--call-container-width)] px-4 sm:px-6 lg:px-0">
         {/* ---------- header ---------- */}
         <header className="grid grid-cols-1 gap-8 md:grid-cols-12 lg:gap-0">
           <div className="md:col-span-7">
-            <p className="text-[15px] font-semibold tracking-[-0.01em] text-[#3f6ef5]">
+            <p className="text-[length:var(--call-font-15)] font-semibold tracking-[var(--call-tracking-1)] text-[var(--call-label-color)]">
               AI-native modern contact center
             </p>
-            <h2 className="mt-6 max-w-[480px] text-[30px] font-light leading-[1.1] tracking-[-0.05em] text-[#1f2230] sm:text-[34px] lg:mt-12 lg:text-[40px] lg:leading-[40px]">
+            <h2 className="mt-6 max-w-[var(--call-header-width)] text-[length:var(--call-font-30)] font-light leading-[var(--call-line-heading)] tracking-[var(--call-tracking-5)] text-[var(--call-header-color)] sm:text-[length:var(--call-font-34)] lg:mt-12 lg:text-[length:var(--call-font-40)] lg:leading-[var(--call-line-40)]">
               Built for the Complexity of Real Call Centers
             </h2>
           </div>
 
-          <p className="mt-2 max-w-[380px] text-[16px] leading-6 tracking-[-0.02em] text-[#1f2230] md:col-span-5 lg:mt-[56px] lg:text-[16px] lg:leading-5">
+          <p className="mt-2 max-w-[var(--call-description-width)] text-[length:var(--call-font-16)] leading-6 tracking-[var(--call-tracking-2)] text-[var(--call-header-color)] md:col-span-5 lg:mt-[var(--call-header-description-margin)] lg:text-[length:var(--call-font-16)] lg:leading-[var(--call-line-20)]">
             Handle the workflows that make production call centers complex,
             from routing and transfers to outbound campaigns, human
             intervention, and CRM automation.
@@ -130,7 +136,7 @@ export default function CallCenterFeatures() {
               key={card.title}
               card={card}
               className="md:col-span-3"
-              mediaHeight="h-[300px] md:h-[360px] lg:h-[470px]"
+              mediaHeight="h-[var(--call-media-height)] md:h-[var(--call-media-height-md-top)] lg:h-[var(--call-media-height-lg-top)]"
             />
           ))}
 
@@ -140,7 +146,7 @@ export default function CallCenterFeatures() {
               key={card.title}
               card={card}
               className="md:col-span-2"
-              mediaHeight="h-[300px] md:h-[260px] lg:h-[390px]"
+              mediaHeight="h-[var(--call-media-height)] md:h-[var(--call-media-height-md-bottom)] lg:h-[var(--call-media-height-lg-bottom)]"
             />
           ))}
         </div>

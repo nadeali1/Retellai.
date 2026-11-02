@@ -59,26 +59,26 @@ export default function Highlights() {
   }, []);
 
   return (
-    <section className="px-[8px] pt-[60px] lg:mx-auto lg:w-[80%] lg:px-0 min-[1600px]:w-[60.4%]">
+    <section className="px-[var(--hl-section-padding-x)] pt-[var(--hl-section-padding-top)] lg:mx-auto lg:w-[var(--hl-section-width-lg)] lg:px-0 min-[1600px]:w-[var(--hl-section-width-xl)]">
       <style>{`@keyframes hl-progress{from{width:100%}to{width:100%}}`}</style>
 
-      <div className="grid grid-cols-1 gap-[10px] lg:grid-cols-2 lg:gap-0">
-        <div className="flex flex-col gap-[40px]">
-          <span className="text-[13px] font-medium text-[#3e6aef]">
+      <div className="grid grid-cols-1 gap-[var(--hl-header-gap)] lg:grid-cols-2 lg:gap-0">
+        <div className="flex flex-col gap-[var(--hl-header-column-gap)]">
+          <span className="text-[length:var(--hl-label-font)] font-medium text-[var(--hl-label-color)]">
             Highlights
           </span>
 
-          <h2 className="text-[24px] font-light leading-[100%] tracking-[-0.01em] text-[#2d2d2d] lg:max-w-[10.5em] lg:text-[clamp(22px,2.7vw,60px)]">
+          <h2 className="text-[length:var(--hl-heading-font)] font-light leading-[var(--hl-heading-line)] tracking-[var(--hl-heading-tracking)] text-[var(--hl-heading-color)] lg:max-w-[var(--hl-heading-width-lg)] lg:text-[length:var(--hl-heading-font-lg)]">
             Human-standard AI voice agent, out of the box
           </h2>
 
-          <p className="max-w-[34em] text-[16px] leading-[1.1] text-[#1a1a1a] lg:text-[14px]">
+          <p className="max-w-[var(--hl-description-width)] text-[length:var(--hl-description-font)] leading-[var(--hl-description-line)] text-[var(--hl-description-color)] lg:text-[length:var(--hl-description-font-lg)]">
             Proprietary Voice AI Orchestration Delivering Human-Quality,
             Low-Latency Phone Conversations At Scale
           </p>
         </div>
 
-        <div className="relative aspect-[1.155/1] w-full overflow-hidden rounded-[28px] lg:col-start-2 lg:row-start-1">
+        <div className="relative aspect-[var(--hl-image-aspect)] w-full overflow-hidden rounded-[var(--hl-image-radius)] lg:col-start-2 lg:row-start-1">
           <Image
             src="/images/HighImg.webp"
             alt="Highlight Image"
@@ -89,34 +89,36 @@ export default function Highlights() {
         </div>
       </div>
 
-      <div className="mt-[24px]">
+      <div className="mt-[var(--hl-rows-margin-top)]">
         {rows.map((row, i) => {
           const isActive = i === active;
           return (
             <div
               key={row.title}
               onClick={() => setActive(i)}
-              className="relative cursor-pointer pb-[44px] pt-[30px] lg:pb-[3.8%] lg:pt-[2.4%]"
+              className="relative cursor-pointer pb-[var(--hl-row-padding-bottom)] pt-[var(--hl-row-padding-top)] lg:pb-[var(--hl-row-padding-bottom-lg)] lg:pt-[var(--hl-row-padding-top-lg)]"
             >
               <span
-                className="absolute left-0 top-0 h-px bg-[#e4e4ea]"
+                className="absolute left-0 top-0 h-px bg-[var(--hl-divider-color)]"
                 style={{ width: `${scrollProgress}%` }}
               />
 
-              <div className="grid grid-cols-1 gap-[32px] lg:grid-cols-2 lg:gap-0">
-                <h3 className="text-[26px] font-light leading-[1.1] tracking-[-0.01em] text-[#2d2d2d] lg:text-[clamp(18px,1.4vw,32px)]">
+              <div className="grid grid-cols-1 gap-[var(--hl-row-grid-gap)] lg:grid-cols-2 lg:gap-0">
+                <h3 className="text-[length:var(--hl-row-heading-font)] font-light leading-[var(--hl-row-heading-line)] tracking-[var(--hl-row-heading-tracking)] text-[var(--hl-heading-color)] lg:text-[length:var(--hl-row-heading-font-lg)]">
                   {row.title}
                 </h3>
 
-                <div className="flex flex-col gap-[23px] lg:flex-row lg:items-start lg:justify-between">
-                  <p className="max-w-[16em] text-[16px] leading-[1.2] text-[#1a1a1a] lg:max-w-[19em] lg:text-[15px]">
+                <div className="flex flex-col gap-[var(--hl-row-content-gap)] lg:flex-row lg:items-start lg:justify-between">
+                  <p className="max-w-[var(--hl-row-description-width)] text-[length:var(--hl-row-description-font)] leading-[var(--hl-row-description-line)] text-[var(--hl-row-description-color)] lg:max-w-[var(--hl-row-description-width-lg)] lg:text-[length:var(--hl-row-description-font-lg)]">
                     {row.description}
                   </p>
 
-                  <div className="flex aspect-square w-[120px] shrink-0 items-center justify-center rounded-[8px] bg-[#F5F5FA] lg:w-[20.7%]">
+                  <div className="flex aspect-square w-[var(--hl-icon-size)] shrink-0 items-center justify-center rounded-[var(--hl-icon-radius)] bg-[var(--hl-icon-bg)] lg:w-[var(--hl-icon-size-lg)]">
                     <span
-                      className={`h-[22px] w-[22px] rounded-full bg-[#00122E] shadow-[0_0_0_2px_rgba(255,170,130,0.45)] transition-transform duration-75 ${
-                        isActive ? "-translate-x-[26px]" : ""
+                      className={`h-[var(--hl-icon-dot-size)] w-[var(--hl-icon-dot-size)] rounded-full bg-[var(--hl-icon-dot)] shadow-[var(--hl-icon-shadow)] transition-transform duration-[var(--hl-transition-duration)] ${
+                        isActive
+                          ? "-translate-x-[var(--hl-icon-dot-movement)]"
+                          : ""
                       }`}
                     />
                   </div>

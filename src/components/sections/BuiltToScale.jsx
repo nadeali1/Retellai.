@@ -72,21 +72,21 @@ export default function BuiltToScale() {
   }, []);
 
   const word =
-    "whitespace-nowrap text-[clamp(26px,2vw,54px)] font-light tracking-[-0.04em] text-[#2b2b33] will-change-transform";
+    "whitespace-nowrap text-[length:var(--built-text-size)] font-light tracking-[var(--built-text-letter-spacing)] text-[var(--built-text-color)] will-change-transform";
 
   return (
-    <div className="my-[200px]">
+    <div className="my-[var(--built-section-margin-y)]">
       <section
         ref={sectionRef}
-        className="flex items-center overflow-hidden bg-white py-24"
+        className="flex items-center overflow-hidden bg-[var(--built-section-bg)] py-[var(--built-section-padding-y)]"
       >
         <div
           ref={wrapRef}
-          className="box-border w-full px-[clamp(16px,8vw,120px)]"
+          className="box-border w-full px-[var(--built-container-padding)]"
         >
           <div
             ref={rowRef}
-            className="mx-auto flex w-max max-w-full items-center justify-center gap-[clamp(12px,4vw,56px)]"
+            className="mx-auto flex w-max max-w-full items-center justify-center gap-[var(--built-row-gap)]"
           >
             <span ref={leftRef} className={word}>
               Built
@@ -96,7 +96,7 @@ export default function BuiltToScale() {
               ref={ringRef}
               viewBox="0 0 100 100"
               aria-hidden="true"
-              className="h-[clamp(64px,11vw,120px)] w-[clamp(64px,11vw,120px)] flex-none will-change-transform"
+              className="h-[var(--built-ring-size)] w-[var(--built-ring-size)] flex-none will-change-transform"
             >
               {Array.from({ length: DOTS }).map((_, i) => {
                 const a = (i / DOTS) * Math.PI * 2 - Math.PI / 2;
@@ -106,7 +106,7 @@ export default function BuiltToScale() {
                     cx={50 + 38 * Math.cos(a)}
                     cy={50 + 38 * Math.sin(a)}
                     r="8"
-                    fill="#2b2b33"
+                    fill="var(--built-ring-color)"
                   />
                 );
               })}

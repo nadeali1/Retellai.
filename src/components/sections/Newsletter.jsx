@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const DottedArrow = () => (
-  <svg viewBox="0 0 12 14" className="h-3.5 w-3 text-[#1a1d2e]" fill="currentColor" aria-hidden="true">
+  <svg viewBox="0 0 12 14" className="h-3.5 w-3 text-[var(--newsletter-icon-color)]" fill="currentColor" aria-hidden="true">
     {[
       [2, 2],
       [6, 4.5],
@@ -17,7 +17,7 @@ const DottedArrow = () => (
 );
 
 const Check = () => (
-  <svg viewBox="0 0 12 12" className="h-3 w-3 text-[#0b1230]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+  <svg viewBox="0 0 12 12" className="h-3 w-3 text-[var(--newsletter-text-dark)]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M2 6.5 5 9.5 10 3" />
   </svg>
 );
@@ -64,11 +64,11 @@ export default function Newsletter() {
     <form
       ref={wrapRef}
       onSubmit={handleSubmit}
-      className={`w-full border border-white/25 bg-white/20 backdrop-blur-md transition-[border-radius] duration-300 lg:max-w-[800px] ${
-        open ? "rounded-[24px] sm:rounded-[28px]" : "rounded-[22px]"
+      className={`w-full border border-[var(--newsletter-border)] bg-[var(--newsletter-bg)] backdrop-blur-md transition-[border-radius] duration-300 lg:max-w-[var(--newsletter-max-width)] ${
+        open ? "rounded-[var(--newsletter-radius-open)] sm:rounded-[var(--newsletter-radius-open-sm)]" : "rounded-[var(--newsletter-radius)]"
       }`}
     >
-      <div className="flex h-[60px] items-stretch p-[2px] md:h-[71px] lg:max-h-[117px]">
+      <div className="flex h-[var(--newsletter-height)] items-stretch p-[var(--newsletter-padding)] md:h-[var(--newsletter-height-md)] lg:max-h-[var(--newsletter-max-height-lg)]">
         <input
           type="email"
           required={open}
@@ -78,13 +78,13 @@ export default function Newsletter() {
           onClick={openPanel}
           placeholder="Your email"
           aria-label="Your email"
-          className="min-w-0 flex-1 bg-transparent px-6 text-[16px] font-medium text-white placeholder:text-white focus:outline-none sm:px-7 lg:max-w-[733px]"
+          className="min-w-0 flex-1 bg-transparent px-6 text-[length:var(--newsletter-font-16)] font-medium text-white placeholder:text-white focus:outline-none sm:px-7 lg:max-w-[var(--newsletter-input-max-width)]"
         />
         {!open && (
           <button
             type="button"
             onClick={openPanel}
-            className="flex h-[52px] items-center justify-between gap-4 rounded-[19px] bg-white px-6 py-6 text-[18px] font-medium text-[#0b1230] transition-colors hover:bg-[#f1f2f8] sm:w-[160px] lg:h-auto lg:max-w-[282px] lg:py-8 xl:max-h-[106px] xl:min-w-[290px] xl:px-[53px] xl:text-[24px]"
+            className="flex h-[var(--newsletter-button-height)] items-center justify-between gap-4 rounded-[var(--newsletter-button-radius)] bg-white px-6 py-6 text-[length:var(--newsletter-font-18)] font-medium text-[var(--newsletter-text-dark)] transition-colors hover:bg-[var(--newsletter-hover-bg)] sm:w-[160px] lg:h-auto lg:max-w-[var(--newsletter-button-max-width)] lg:py-8 xl:max-h-[var(--newsletter-button-max-height-xl)] xl:min-w-[var(--newsletter-button-min-width-xl)] xl:px-[var(--newsletter-button-padding-x-xl)] xl:text-[length:var(--newsletter-font-24)]"
           >
             Submit
             <DottedArrow />
@@ -102,19 +102,19 @@ export default function Newsletter() {
           <div className="px-5 pb-5 pt-2 sm:px-6 sm:pb-6 lg:px-7 lg:pb-7">
             {done ? (
               <div className="py-2">
-                <p className="text-[20px] font-medium leading-[26px] text-white sm:text-[22px]">Thanks for subscribing.</p>
-                <p className="mt-2 text-[14px] leading-[20px] text-white/80">Check your inbox for a confirmation email.</p>
+                <p className="text-[length:var(--newsletter-font-20)] font-medium leading-[var(--newsletter-line-26)] text-white sm:text-[length:var(--newsletter-font-22)]">Thanks for subscribing.</p>
+                <p className="mt-2 text-[length:var(--newsletter-font-14)] leading-[var(--newsletter-line-20)] text-[var(--newsletter-white-80)]">Check your inbox for a confirmation email.</p>
                 <button
                   type="button"
                   onClick={() => setOpen(false)}
-                  className="mt-6 h-12 w-full rounded-full bg-white text-[15px] font-medium text-[#0b1230] transition-colors hover:bg-[#f1f2f8]"
+                  className="mt-6 h-12 w-full rounded-full bg-white text-[length:var(--newsletter-font-15)] font-medium text-[var(--newsletter-text-dark)] transition-colors hover:bg-[var(--newsletter-hover-bg)]"
                 >
                   Close
                 </button>
               </div>
             ) : (
               <>
-                <label className="flex cursor-pointer items-start gap-3 text-[14px] font-medium leading-[20px] text-white">
+                <label className="flex cursor-pointer items-start gap-3 text-[length:var(--newsletter-font-14)] font-medium leading-[var(--newsletter-line-20)] text-white">
                   <input
                     type="checkbox"
                     checked={agree}
@@ -122,7 +122,7 @@ export default function Newsletter() {
                     tabIndex={open ? 0 : -1}
                     className="peer sr-only"
                   />
-                  <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-md border border-white/60 bg-white/10 peer-checked:border-white peer-checked:bg-white peer-focus-visible:ring-2 peer-focus-visible:ring-white/80">
+                  <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-md border border-[var(--newsletter-white-60)] bg-[var(--newsletter-white-10)] peer-checked:border-white peer-checked:bg-white peer-focus-visible:ring-2 peer-focus-visible:ring-[var(--newsletter-focus-ring)]">
                     {agree && <Check />}
                   </span>
                   <span>I agree to receive the Retell newsletter and accept the data privacy statement.</span>
@@ -132,17 +132,17 @@ export default function Newsletter() {
                   type="submit"
                   tabIndex={open ? 0 : -1}
                   disabled={!agree || !email}
-                  className="mt-5 h-12 w-full rounded-full bg-white text-[15px] font-medium text-[#0b1230] transition-colors hover:bg-[#f1f2f8] disabled:cursor-not-allowed disabled:opacity-90 sm:h-[52px] lg:mt-6"
+                  className="mt-5 h-12 w-full rounded-full bg-white text-[length:var(--newsletter-font-15)] font-medium text-[var(--newsletter-text-dark)] transition-colors hover:bg-[var(--newsletter-hover-bg)] disabled:cursor-not-allowed disabled:opacity-90 sm:h-[var(--newsletter-button-height)] lg:mt-6"
                 >
                   Subscribe
                 </button>
 
-                <p className="mt-5 max-w-[560px] text-[13px] leading-[20px] text-white/70 sm:text-[14px]">
+                <p className="mt-5 max-w-[var(--newsletter-text-max-width)] text-[length:var(--newsletter-font-13)] leading-[var(--newsletter-line-20)] text-[var(--newsletter-white-70)] sm:text-[length:var(--newsletter-font-14)]">
                   You can unsubscribe at any time using the link in any email. This site is protected by reCAPTCHA and the Google{" "}
                   <a href="#" tabIndex={open ? 0 : -1} className="font-bold underline">Privacy Policy</a> and{" "}
                   <a href="#" tabIndex={open ? 0 : -1} className="font-bold underline">Terms of Service</a> apply.
                 </p>
-                <p className="mt-3 max-w-[560px] text-[13px] leading-[20px] text-white/70 sm:text-[14px]">
+                <p className="mt-3 max-w-[var(--newsletter-text-max-width)] text-[length:var(--newsletter-font-13)] leading-[var(--newsletter-line-20)] text-[var(--newsletter-white-70)] sm:text-[length:var(--newsletter-font-14)]">
                   We use Brevo as our marketing platform. By submitting this form you agree that the personal data you provided will be
                   transferred to Brevo for processing in accordance with{" "}
                   <a href="#" tabIndex={open ? 0 : -1} className="font-bold underline">Brevo’s Privacy Policy.</a>
