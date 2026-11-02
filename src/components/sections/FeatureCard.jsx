@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 
 const features = [
   {
@@ -41,77 +40,13 @@ const features = [
   },
 ];
 
-// export default function FeatureCard() {
-//   const [active, setActive] = useState(0);
-//   const feature = features[active];
-
-//   return (
-//     <>
-      
-// <div className="xl:mx-auto 2xl:mx-auto">
-
-//   {/* Video */}
-//   {/* <div className="relative aspect-[16/7] w-[] overflow-hidden rounded-[12px]"> */}
-//   <div className="relative aspect-[16/8] w-full overflow-hidden rounded-[24px]">
-//   <video
-//     key={feature.video}
-//     src={feature.video}
-//     autoPlay
-//     muted
-//     loop
-//     playsInline
-//     className="absolute inset-0 h-full w-full object-cover"
-//   />
-// </div>
-
-//   {/* Content aligned to video */}
-//   <div className="mt-[28px] grid w-full grid-cols-1 gap-y-[20px] md:grid-cols-[1fr_1fr] md:gap-x-[24px]">
-
-//     <h2 className="m-0 w-full max-w-[330px] text-[28px] leading-[1.15] tracking-[-0.03em] text-white">
-//       {feature.title}
-//     </h2>
-
-//     <p className="m-0 w-full max-w-[400px] text-[18px] leading-[1.2] text-white/85 md:ml-auto">
-//       {feature.description}
-//     </p>
-
-//     <div className="col-span-1 flex w-full flex-wrap items-center justify-start gap-[8px] md:col-span-2">
-//       {features.map((item, index) => (
-//         <button
-//           key={item.name}
-//           type="button"
-//           onClick={() => setActive(index)}
-//           className={`w-fit shrink-0 rounded-full border px-[16px] py-[12px] text-[12px] font-semibold ${
-//             active === index
-//               ? "border-white bg-white text-[#00122e]"
-//               : "border-white/40 bg-white/10 text-white"
-//           }`}
-//         >
-//           {item.name}
-//         </button>
-//       ))}
-//     </div>
-
-//   </div>
-// </div>
-
-
-
-//     </>
-//   );
-// }
-
-// mt-8 grid grid-cols-2 gap-2  md:grid-cols-5
-
-
 export default function FeatureCard() {
   const [active, setActive] = useState(0);
   const feature = features[active];
 
   return (
-    <div className="lg:w-[80%] xl:w-[61%] lg:mx-auto">
-      {/* Video */}
-      <div className="relative aspect-[16/8] w-full overflow-hidden rounded-[24px] lg:aspect-[16/9] lg:rounded-[12px]">
+    <div className="lg:w-[var(--feature-video-width-lg)] xl:w-[var(--feature-video-width-xl)] lg:mx-auto">
+      <div className="relative aspect-[var(--feature-video-aspect)] w-full overflow-hidden rounded-[var(--feature-video-radius)] lg:aspect-[var(--feature-video-aspect-lg)] lg:rounded-[var(--feature-video-radius-lg)]">
         <video
           key={feature.video}
           src={feature.video}
@@ -123,30 +58,29 @@ export default function FeatureCard() {
         />
       </div>
 
-      {/* Title + description + tabs, aligned to the video edges */}
-      <div className="mt-[28px] grid w-full grid-cols-1 gap-y-[20px] md:grid-cols-[1fr_1fr] md:gap-x-[24px] lg:mt-[32px] lg:grid-cols-[minmax(0,69.5fr)_minmax(0,30.5fr)] lg:gap-x-0 lg:gap-y-[40px]">
-        <h2 className="m-0 w-full max-w-[330px] text-[28px] leading-[1.15] tracking-[-0.03em] text-white lg:max-w-[11em] lg:text-[clamp(20px,1.4vw,32px)]">
+      <div className="mt-[var(--feature-content-margin)] grid w-full grid-cols-1 gap-y-[var(--feature-row-gap)] md:grid-cols-[var(--feature-grid-columns)] md:gap-x-[var(--feature-column-gap)] lg:mt-[var(--feature-content-margin-lg)] lg:grid-cols-[var(--feature-grid-columns-lg)] lg:gap-x-0 lg:gap-y-[var(--feature-row-gap-lg)]">
+        <h2 className="m-0 w-full max-w-[var(--feature-heading-width)] text-[length:var(--feature-heading-size)] leading-[var(--feature-heading-line)] tracking-[var(--feature-heading-tracking)] text-[var(--feature-heading-color)] lg:max-w-[var(--feature-heading-width-lg)] lg:text-[length:var(--feature-heading-size-lg)]">
           {feature.title}
         </h2>
 
-        <p className="m-0 w-full max-w-[400px] text-[18px] leading-[1.2] text-white/85 md:ml-auto lg:ml-0 lg:max-w-none lg:text-[clamp(13px,0.9vw,18px)]">
+        <p className="m-0 w-full max-w-[var(--feature-description-width)] text-[length:var(--feature-description-size)] leading-[var(--feature-description-line)] text-[var(--feature-description-color)] md:ml-auto lg:ml-0 lg:max-w-none lg:text-[length:var(--feature-description-size-lg)]">
           {feature.description}
         </p>
 
-        <div className="col-span-1 flex w-full flex-wrap items-center justify-start gap-[8px] md:col-span-2 lg:gap-[6px]">
+        <div className="col-span-1 flex w-full flex-wrap items-center justify-start gap-[var(--feature-button-gap)] md:col-span-2 lg:gap-[var(--feature-button-gap-lg)]">
           {features.map((item, index) => (
             <button
               key={item.name}
               type="button"
               onClick={() => setActive(index)}
-              className={`flex w-fit shrink-0 items-center gap-[8px] rounded-full border px-[16px] py-[12px] text-[12px] font-semibold ${
+              className={`flex w-fit shrink-0 items-center gap-[var(--feature-button-gap)] rounded-full border px-[var(--feature-button-padding-x)] py-[var(--feature-button-padding-y)] text-[length:var(--feature-button-font)] font-semibold ${
                 active === index
-                  ? "border-white bg-white text-[#00122e]"
-                  : "border-white/40 bg-white/10 text-white"
+                  ? "border-[var(--feature-button-active-border)] bg-[var(--feature-button-active-bg)] text-[var(--feature-button-active-text)]"
+                  : "border-[var(--feature-button-inactive-border)] bg-[var(--feature-button-inactive-bg)] text-[var(--feature-button-inactive-text)]"
               }`}
             >
               {active === index && (
-                <span className="h-[14px] w-[14px] rounded-full border-2 border-[#b24bf3]" />
+                <span className="h-[var(--feature-button-dot-size)] w-[var(--feature-button-dot-size)] rounded-full border-2 border-[var(--feature-button-dot-border)]" />
               )}
               {item.name}
             </button>

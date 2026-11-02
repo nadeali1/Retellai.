@@ -11,13 +11,13 @@ const logos = [
 
 export default function MarqueeSection() {
   return (
-    <div className="flex w-full flex-col gap-[52px] overflow-hidden pt-[30px] pb-[12px]">
+    <div className="flex w-full flex-col gap-[var(--marquee-section-gap)] overflow-hidden pt-[var(--marquee-section-pt)] pb-[var(--marquee-section-pb)]">
       {/* First row */}
-      <Marquee pauseOnHover className="[--duration:25s]">
+      <Marquee  className="[--duration:var(--marquee-duration)]">
         {logos.map((logo, index) => (
           <div
             key={`first-${index}`}
-            className="mx-8 flex h-[30px] w-[136px] shrink-0 items-center justify-center"
+            className="mx-8 flex h-[var(--marquee-logo-height)] w-[var(--marquee-logo-width)] shrink-0 items-center justify-center"
           >
             <Image
               src={logo}
@@ -30,8 +30,8 @@ export default function MarqueeSection() {
         ))}
       </Marquee>
 
-      {/* Second row - reverse direction */}
-      <Marquee reverse pauseOnHover className="[--duration:25s]">
+
+      <Marquee reverse  className="[--duration:var(--marquee-duration)]">
         {logos.map((logo, index) => (
           <div
             key={`second-${index}`}

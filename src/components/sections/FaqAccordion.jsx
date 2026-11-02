@@ -2,30 +2,12 @@
 
 import { useId, useState } from "react";
 
-/**
- * AI Voice Agent FAQs - accordion with 10 questions
- *
- * - Click a question (or its round button) to open it.
- * - The button icon flips 180deg instantly (no slow rotation) when the
- *   answer opens, and flips back when it closes. Height still animates.
- * - Each FAQ opens and closes on its own: opening one never closes another.
- *   (Set ALLOW_MULTIPLE = false if you ever want one-at-a-time.)
- * - Responsive: same component for desktop and phone.
- *
- * YOUR ICON IMAGE:
- *   import arrow from "./assets/arrow-dots.png";
- *   const ICON_SRC = arrow;
- * It should point DOWN in its normal state (closed). When opened it rotates
- * to point UP. If your image already points UP, set ICON_POINTS_UP = true.
- * With ICON_SRC = null a built-in dotted chevron is used instead.
- */
 
 const ICON_SRC = null;
 const ICON_POINTS_UP = false;
 const ALLOW_MULTIPLE = true;
 const OPEN_FIRST_BY_DEFAULT = true;
 
-// Replace the answers (and questions 7-10) with your real content.
 const FAQS = [
   {
     q: "What is an AI voice agent?",
@@ -125,7 +107,7 @@ function Icon() {
   if (ICON_SRC) {
     return <img src={ICON_SRC} alt="" className="faq__img" />;
   }
-  // built-in dotted chevron (points down)
+
   const pts = [
     [5, 9],
     [8.5, 12],
@@ -195,7 +177,6 @@ export default function FaqAccordion() {
 
   return (
     <>
-      <style>{css}</style>
       <section className="faq">
         <div className="faq__head">
           <span className="faq__eyebrow">FAQ</span>
@@ -217,168 +198,4 @@ export default function FaqAccordion() {
   );
 }
 
-const css = `
 
-.faq {
-  // font-family: Inter, "Helvetica Neue", Arial, sans-serif;
-  color: #1c1c28;
-  background: #fff;
-  padding: 48px 20px 80px;
-}
-
-.faq__head {
-  text-align: center;
-  margin-bottom: 72px;
-}
-
-.faq__eyebrow {
-  font-size: 13px;
-  font-weight: 600;
-  color: #3f6df2;
-}
-
-.faq__title {
-  margin: 28px 0 0;
-  font-size: clamp(30px, 5vw, 52px);
-  font-weight: 400;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-}
-
-.faq__list {
-  max-width: 1160px;
-  margin: 0 auto;
-  border-top: 1px solid #dcdce8;
-}
-
-.faq__item {
-  border-bottom: 1px solid #dcdce8;
-}
-
-.faq__heading {
-  margin: 0;
-  font-weight: 400;
-}
-
-.faq__q {
-  appearance: none;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  width: 100%;
-  padding: 20px 0;
-  border: 0;
-  background: transparent;
-  color: inherit;
-  text-align: left;
-  cursor: pointer;
-  font: inherit;
-  font-size: clamp(17px, 2.4vw, 20px);
-  letter-spacing: -0.02em;
-  line-height: 1.3;
-}
-
-.faq__q:focus-visible {
-  outline: 2px solid #3f6df2;
-  outline-offset: 2px;
-  border-radius: 6px;
-}
-
-/* Icon button */
-.faq__btn {
-  flex: none;
-  display: grid;
-  place-items: center;
-  width: 52px;
-  height: 44px;
-  border-radius: 22px;
-  background: #f4f4f8;
-
-  transform: rotate(0deg);
-  transition: transform 0.35s ease;
-}
-
-.faq__item.is-open .faq__btn {
-  transform: rotate(180deg);
-}
-
-.faq__img {
-  width: 22px;
-  height: 22px;
-  display: block;
-}
-
-/* Answer open/close animation */
-.faq__panel {
-  display: grid;
-  grid-template-rows: 0fr;
-  visibility: hidden;
-  transition:
-    grid-template-rows 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-    visibility 0s linear 0.45s;
-}
-
-.faq__item.is-open .faq__panel {
-  grid-template-rows: 1fr;
-  visibility: visible;
-  transition:
-    grid-template-rows 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-    visibility 0s;
-}
-
-.faq__panelInner {
-  min-height: 0;
-  overflow: hidden;
-}
-
-.faq__a {
-  max-width: 1100px;
-  margin: 0;
-  padding: 0 0 32px;
-  font-size: clamp(15px, 2vw, 17px);
-  line-height: 1.5;
-  letter-spacing: -0.01em;
-
-  opacity: 0;
-  transform: translateY(-8px);
-  transition:
-    opacity 0.25s ease,
-    transform 0.35s ease;
-}
-
-.faq__item.is-open .faq__a {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.08s;
-}
-
-@media (max-width: 639px) {
-  .faq {
-    padding: 32px 16px 56px;
-  }
-
-  .faq__head {
-    margin-bottom: 40px;
-  }
-
-  .faq__btn {
-    width: 44px;
-    height: 40px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .faq__btn,
-  .faq__panel,
-  .faq__a {
-    transition: none;
-  }
-
-  .faq__a {
-    transform: none;
-  }
-}
-
-`;
